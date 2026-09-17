@@ -18,7 +18,36 @@ Project conventions: UTC timestamps everywhere (code: `DateTime.UtcNow`, never l
 | Node.js | v26.7.0 | `node --version` |
 | npm | 12.0.2 | `npm --version` |
 | create-next-app (scaffolder) | 16.3.5 | `create-next-app --version` (npm cache workaround: `NPM_CONFIG_CACHE=/tmp/npm-cache-dns` — host `~/.npm/_cacache` is not writable) |
+| VS Code | 1.138.0 (see build block below) | `code --version` (binary not on PATH; use `/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code`) |
 | .gitignore baseline | `dotnet new gitignore` template | repo root `.gitignore` |
+
+### VS Code build (user-provided `code --version`, 2026-09-15)
+
+```text
+Version: 1.138.0
+Commit: 7debcd0e2acdea1c52de81bf9ee1620444407dda
+Date: 2026-09-15T07:24:32Z
+Electron: 42.10.0
+ElectronBuildId: 15109253
+Chromium: 148.0.7778.280
+Node.js: 24.18.1
+V8: 14.8.178.38-electron.0
+@github/copilot: 1.0.84-4
+@github/copilot-sdk: 1.0.13
+OS: Darwin arm64 27.0.0
+```
+
+### VS Code extensions (7 installed, `--list-extensions --show-versions`, 2026-09-17 UTC)
+
+| Extension | Version | Purpose / relevance |
+|---|---|---|
+| `ms-dotnettools.csharp` | 2.140.9 | C# language support (Roslyn, debugging) — primary editor for both solutions |
+| `ms-dotnettools.csdevkit` | 3.20.207 | C# Dev Kit (solution explorer, test runner for the xunit projects) |
+| `ms-dotnettools.vscode-dotnet-runtime` | 3.1.0 | .NET runtime acquisition for the above |
+| `csharpier.csharpier-vscode` | 11.0.0 | Format-on-save for C# — matches §7 (CSharpier 1.3.0 local tool) |
+| `avaloniateam.vscode-avalonia` | 12.3.1 | Avalonia UI preview — installed, not used by this repo (no Avalonia projects) |
+| `oderwat.indent-rainbow` | 8.3.1 | Indent guides (cosmetic) |
+| `pkief.material-icon-theme` | 5.38.1 | File icons (cosmetic) |
 
 ## 2. Solution1 — MVC (`Solution1/src/server/DnsZoneRecordManager`)
 
@@ -108,6 +137,7 @@ head -3 Solution1/src/server/DnsZoneRecordManager/wwwroot/lib/bootstrap/dist/css
 cd Solution2/src/client && node -e "for (const p of ['next','react','react-dom','tailwindcss','typescript','eslint','eslint-config-next','prettier','@types/node','@types/react','@types/react-dom']) console.log(p, require('./node_modules/'+p+'/package.json').version)"
 dotnet csharpier check .
 npm run format:check --prefix Solution2/src/client
+"/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code" --list-extensions --show-versions
 ```
 
 ## 6. Deliberately NOT installed yet (next implementation steps)
