@@ -173,3 +173,46 @@ Ambiguities resolved this way (call out in readmes): SOA/`$TTL` header lines are
 1. Is EF Core + SQLite acceptable in place of In-Memory? (assumed yes per user direction)
 2. Should zone export include SOA/`$TTL` header lines or records-only CSV? (default: records-only CSV)
 3. Is the 4-NS floor per-zone or per-"empty"-zone only? (default: enforced per zone at all times)
+
+## 11. Bundle provenance — people, organization, file metadata (forensics, 2026-09-17 UTC)
+
+File-embedded metadata names two people; public records (devselect.com/about, LinkedIn, ZoomInfo, ContactOut, RocketReach — checked 2026-09-17) confirm both at DevSelect, LLC:
+
+| Person | Title | Organization | Location | Evidence |
+|---|---|---|---|---|
+| Terry (Terrence) Gaughan | Founder / CEO | DevSelect, LLC (founded 1999; 505 Broadway E PMB 376, Seattle, WA 98102; devselect.com; (800) 962-8779) | Seattle, WA | PDF Info dict + XMP `dc:creator` = "Terry Gaughan"; footer "DevSelect Confidential"; devselect.com/about lists him as founder/CEO |
+| Jason Guiberson | Vice President, Software Development (2018–present; ex-Microsoft: Groove Music, Movies & TV, MSN apps) | DevSelect, LLC | Kirkland, WA | xlsx `dc:creator`/`lastModifiedBy` = "Jason Guiberson (ALLYIS INC)" — file tag names a vendor employer-of-record, public role is DevSelect VP; email format `{first}@devselect.com` |
+
+### 11a. Filesystem metadata (this machine, IST; uid 501/staff)
+
+| File | Birth | Modified | Size |
+|---|---|---|---|
+| `Other/` (folder) | 2026-09-17 19:13 IST | 2026-09-17 19:33 IST | — |
+| `DS-ENG_take-home.zip` | 2026-09-17 19:13 IST | 2026-09-17 19:13 IST | 196,555 |
+| `REQUIREMENTS_ANALYSIS.md` (this doc's twin) | 2026-09-17 19:33 IST | 2026-09-17 19:33 IST | 12,877 (`diff` vs repo copy: IDENTICAL) |
+| `WebApp-TakeHome_2025.pdf` | 2024-05-24 02:56 IST | 2024-05-24 02:56 IST | 102,452 |
+| `zone_sample.zip` | 2024-05-25 01:38 IST | 2024-05-25 01:38 IST | 52,926 |
+| `zone_sample/*` (3 files) | 2024-05-25 01:35–01:37 IST | same | 53,536 / 10,265 / 715 |
+| `zone_sample 2/*` (3 files) | 2024-05-24 13:05–13:07 IST | same | byte-identical to `zone_sample/` (`diff -r`) |
+
+Birth = arrival/handling on this machine lineage; content times below are authoritative for authoring.
+
+### 11b. Embedded + archive metadata (authoring side)
+
+| File | Embedded facts |
+|---|---|
+| PDF | Author "Terry Gaughan" (Info + XMP, no doc title); Creator/Producer "Microsoft® Word for Microsoft 365"; CreationDate = ModDate = 2023-01-26 13:26:12 **-08:00 (PST)**; PDF 1.7, 2 pages; fonts Arial/Calibri/Bierstadt/Courier New/Symbol; DocID `uuid:57A0DB91-…` |
+| xlsx | creator = lastModifiedBy = "Jason Guiberson (ALLYIS INC)"; created 2024-05-24T20:06:01Z, modified 20:07:16Z; Excel 16.0300; 1 sheet; MIP sensitivity label `{f42aa342-…}` (Microsoft tenant); no `Company` field |
+| PNG | 1485×892, 8-bit RGBA, **zero** text/EXIF chunks — no author, software, timestamp, or GPS |
+| `zone_sample.zip` | **made-by: Windows** (MS-DOS/FAT); entries 2024-05-24 13:05–13:08 (author-local) |
+| `DS-ENG_take-home.zip` | **made-by: Unix** (macOS-style); assembled 2024-05-23 14:26 (author-local); 7 entries |
+
+Timezone cross-check (authoring = US Pacific): xlsx stamp is UTC (20:06Z) while the same moment in zip/file times reads 13:06 → PDT (UTC-7); PDF stamps -08:00 (PST, January). Receipt here (IST) lands May 24 ~02:56 IST = May 23 14:26 PDT — outer-zip assembly to the minute.
+
+### 11c. Emails found in bundle
+
+`domainsdns@microsoft.com` (xlsx Owner Group — a distribution list, plus MIP label confirms a Microsoft tenant); `rua@dmarc.microsoft` / `ruf@dmarc.microsoft` (DMARC sample data, not people). No other personal emails in PDF/`.dns`/xlsx.
+
+### 11d. Explicitly absent (checked, not present)
+
+No IPs, no GPS/location, no device IDs, no xlsx revision history, no PDF title, no PNG metadata of any kind. `.DS_Store` files are Finder window state — nothing authorial, not parsed.
