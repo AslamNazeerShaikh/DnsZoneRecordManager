@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Coverage gate settings (see Solution1 readme for the gate command).
+     Generated scaffolding (Razor views, async state machines, lambdas) is excluded;
+     every hand-written line/branch/method must be covered (gate: 100/100/100). -->
+<RunSettings>
+  <DataCollectionRunSettings>
+    <DataCollectors>
+      <DataCollector friendlyName="XPlat code coverage">
+        <Configuration>
+          <Format>cobertura</Format>
+          <ExcludeByAttribute>CompilerGenerated,GeneratedCode</ExcludeByAttribute>
+          <ExcludeByFile>**/*.cshtml</ExcludeByFile>
+        </Configuration>
+      </DataCollector>
+    </DataCollectors>
+  </DataCollectionRunSettings>
+</RunSettings>

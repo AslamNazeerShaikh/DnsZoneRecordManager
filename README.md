@@ -11,7 +11,7 @@ Two slim, goal-centric solutions cover every stack option the brief allows. Both
 | Backend | ASP.NET Core MVC, .NET 10 | ASP.NET Core Web API, .NET 10 (`src/server/DnsZoneRecordManager`) |
 | Data access | Generic Repository + Unit of Work, In-Memory (brief default) | CQRS **without MediatR** (hand-rolled commands/queries + handlers), EF Core + SQLite |
 | Frontend | Razor + Bootstrap + jQuery (default MVC template) | Next.js 16.3.5 + React 19 + TypeScript 5 + Tailwind CSS 4 (`src/client`) |
-| Status | Empty scaffold (this step) | Empty scaffold (this step) |
+| Status | **Implemented** (CRUD + validation + seed + CSV + 100% coverage, see `Solution1/README.md`) | Empty scaffold (this step) |
 
 Core domain rules both must enforce (see analysis doc §7): ≥4 NS records per zone, ≤10 records per zone, types A/AAAA/CNAME/NS/TXT only, no duplicate zones/records, guided validation feedback.
 

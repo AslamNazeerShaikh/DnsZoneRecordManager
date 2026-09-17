@@ -59,6 +59,7 @@ Explicit `Program` class with `Main` + block-scoped namespace (no top-level stat
 | Package | Version | Purpose |
 |---|---|---|
 | FluentValidation | 12.1.1 | Server-authoritative validation (REQUIREMENTS §7 rules) |
+| Microsoft.EntityFrameworkCore.InMemory | 10.0.12 | In-Memory store behind Generic Repository + Unit of Work (brief default) |
 
 ### wwwroot client libs (shipped with the `dotnet new mvc` template, LibMan-style static files)
 
@@ -97,6 +98,8 @@ Identical package set, each test project references its server project. `UnitTes
 | Bogus | 35.6.5 | Seed-shaped fixtures (`nahuexolab.com` data) |
 | FluentValidation | 12.1.1 | Validator-under-test reference |
 | FluentAssertions | 8.11.0 | Assertions |
+| Microsoft.EntityFrameworkCore.InMemory | 10.0.12 | Isolated stores per test |
+| Microsoft.AspNetCore.Mvc.Testing | 10.0.12 | Integration tests (all views/flows, seed, CSV, prod env) |
 
 ## 4. Solution2 — client (`Solution2/src/client`, Next.js App Router + `src/`)
 
@@ -142,7 +145,7 @@ npm run format:check --prefix Solution2/src/client
 
 ## 6. Deliberately NOT installed yet (next implementation steps)
 
-- Solution1: `Microsoft.EntityFrameworkCore.InMemory` (UoW + Generic Repository step)
+- Solution1: done (EF Core InMemory wired + seeded). Remaining: per-solution zip for delivery.
 - Solution2: `Microsoft.EntityFrameworkCore.Sqlite` (+ Design for migrations), hand-rolled CQRS abstractions (no MediatR package — by design)
 - Client: API-client + state/query libs, test runner (vitest/jest) only if justified at build time (YAGNI until then)
 

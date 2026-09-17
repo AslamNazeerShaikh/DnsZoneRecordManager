@@ -1,8 +1,44 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Dashboard";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="dns-hero card mb-4">
+    <div class="card-body">
+        <h1 class="h3 mb-1">DNS Zones &amp; Records</h1>
+        <p class="text-muted mb-3">Simple DNS management for everyone — query, add, edit, and delete zones and records with guided validation.</p>
+        <div class="d-flex gap-2 flex-wrap">
+            <a class="btn btn-primary" asp-controller="Zones" asp-action="Index">Manage zones</a>
+            <a class="btn btn-outline-secondary" asp-controller="Records" asp-action="Index">Browse records</a>
+        </div>
+    </div>
+</div>
+
+<div class="row g-3">
+    <div class="col-12 col-md-6">
+        <div class="card dns-card h-100">
+            <div class="card-body">
+                <h2 class="h5">Zones</h2>
+                <p class="text-muted">Create and rename zones, search by name, delete with a cascade preview.</p>
+                <a class="btn btn-sm btn-outline-primary" asp-controller="Zones" asp-action="Create">New zone</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-md-6">
+        <div class="card dns-card h-100">
+            <div class="card-body">
+                <h2 class="h5">Records</h2>
+                <p class="text-muted">Filter by zone, search, filter by type, and export the grid as CSV.</p>
+                <a class="btn btn-sm btn-outline-primary" asp-controller="Records" asp-action="Create">New record</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card mt-3">
+    <div class="card-body d-flex gap-2 flex-wrap">
+        <span class="badge dns-chip">min 4 NS per zone</span>
+        <span class="badge dns-chip">max 10 records per zone</span>
+        <span class="badge dns-chip">A · AAAA · CNAME · NS · TXT</span>
+        <span class="badge dns-chip">no duplicates</span>
+    </div>
 </div>

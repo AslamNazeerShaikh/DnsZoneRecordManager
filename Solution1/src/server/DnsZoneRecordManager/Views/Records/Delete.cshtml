@@ -1,0 +1,22 @@
+@model RecordDeleteViewModel
+@{
+    ViewData["Title"] = "Delete record";
+}
+
+<h1 class="h3 mb-3">Delete record</h1>
+
+<div class="card border-danger dns-form-card">
+    <div class="card-body">
+        <p class="mb-1">Delete <strong>@Model.Fqdn</strong>?</p>
+        <p>
+            <span class="badge dns-type dns-type-@Model.Type.ToString().ToLowerInvariant()">@Model.Type</span>
+            <code>@Model.Name</code>
+            <span class="text-muted">→ @Model.Data</span>
+        </p>
+        <p class="text-muted">This cannot be undone. Zones must always keep at least 4 NS records.</p>
+        <form method="post" asp-action="Delete" asp-route-id="@Model.Id" asp-route-zoneId="@Model.ZoneId" class="d-flex gap-2">
+            <button type="submit" class="btn btn-danger">Delete record</button>
+            <a class="btn btn-outline-secondary" asp-action="Index" asp-route-zoneId="@Model.ZoneId">Cancel</a>
+        </form>
+    </div>
+</div>

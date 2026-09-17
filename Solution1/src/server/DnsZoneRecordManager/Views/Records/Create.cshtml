@@ -1,0 +1,67 @@
+@model RecordFormViewModel
+@{
+    var editing = Model.Id.HasValue;
+    ViewData["Title"] = editing ? "Edit record" : "New record";
+    var action = editing ? "Edit" : "Create";
+}
+
+<h1 class="h3 mb-3">@ViewData["Title"]</h1>
+
+<div class="card dns-form-card">
+    <div class="card-body">
+        <form method="post" asp-action="@action" asp-route-id="@Model.Id">
+            @if (editing)
+            {
+                <input type="hidden" asp-for="Id" />
+                <input type="hidden" asp-for="ZoneId" />
+                <input type="hidden" asp-for="ZoneName" />
+            }
+            <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+            <div class="mb-3">
+                <label asp-for="ZoneId" class="form-label">Zone</label>
+                @if (editing)
+                {
+                    <input class="form-control" value="@Model.ZoneName" disabled />
+                }
+                else
+                {
+                    <select asp-for="ZoneId" asp-items="Model.ZoneOptions" class="form-select"></select>
+                }
+                <span asp-validation-for="ZoneId" class="text-danger"></span>
+            </div>
+            <div class="row g-3">
+                <div class="col-12 col-md-6">
+                    <label asp-for="Name" class="form-label">Record name</label>
+                    <input asp-for="Name" class="form-control" placeholder="@@, www, _dmarc" autocomplete="off" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="col-6 col-md-3">
+                    <label asp-for="Type" class="form-label">Type</label>
+                    <select asp-for="Type" class="form-select" asp-items="Html.GetEnumSelectList<RecordType>()">
+                        <option value="">Pick…</option>
+                    </select>
+                    <span asp-validation-for="Type" class="text-danger"></span>
+                </div>
+                <div class="col-6 col-md-3">
+                    <label asp-for="Ttl" class="form-label">TTL (seconds)</label>
+                    <input asp-for="Ttl" class="form-control" type="number" min="1" placeholder="3600" />
+                    <span asp-validation-for="Ttl" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="mb-3 mt-3">
+                <label asp-for="Data" class="form-label">Data</label>
+                <input asp-for="Data" class="form-control" placeholder="1.2.3.4, hostname, or text" autocomplete="off" />
+                <span asp-validation-for="Data" class="text-danger"></span>
+                <div class="form-text">A = IPv4 · AAAA = IPv6 · CNAME/NS = hostname · TXT = text. A CNAME name cannot hold other records.</div>
+            </div>
+            <div class="d-flex gap-2">
+                <button type="submit" class="btn btn-primary">Save</button>
+                <a class="btn btn-outline-secondary" asp-action="Index" asp-route-zoneId="@Model.ZoneId">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

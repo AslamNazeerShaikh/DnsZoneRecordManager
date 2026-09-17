@@ -1,0 +1,34 @@
+@model ZoneFormViewModel
+@{
+    var editing = Model.Id.HasValue;
+    ViewData["Title"] = editing ? "Rename zone" : "New zone";
+    var action = editing ? "Edit" : "Create";
+}
+
+<h1 class="h3 mb-3">@ViewData["Title"]</h1>
+
+<div class="card dns-form-card">
+    <div class="card-body">
+        <form method="post" asp-action="@action" asp-route-id="@Model.Id">
+            @if (editing)
+            {
+                <input type="hidden" asp-for="Id" />
+            }
+            <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+            <div class="mb-3">
+                <label asp-for="Name" class="form-label">Zone name</label>
+                <input asp-for="Name" class="form-control" placeholder="nahuexolab.com" autocomplete="off" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+                <div class="form-text">Lowercased automatically. Every zone keeps at least 4 NS records and at most 10 records total.</div>
+            </div>
+            <div class="d-flex gap-2">
+                <button type="submit" class="btn btn-primary">Save</button>
+                <a class="btn btn-outline-secondary" asp-action="Index">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

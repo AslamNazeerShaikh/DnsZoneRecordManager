@@ -1,3 +1,18 @@
+/* DnsZoneRecordManager CRM theme: shadcn-style slate cards on Bootstrap 5.3 color modes. */
+
+:root {
+  --dns-font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --dns-radius: 0.75rem;
+  --dns-accent: #4f46e5;
+  --dns-chip-bg: #eef2ff;
+  --dns-chip-fg: #4338ca;
+}
+
+[data-bs-theme="dark"] {
+  --dns-chip-bg: #1e1b4b;
+  --dns-chip-fg: #c7d2fe;
+}
+
 html {
   font-size: 14px;
 }
@@ -8,10 +23,6 @@ html {
   }
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
 html {
   position: relative;
   min-height: 100%;
@@ -19,6 +30,123 @@ html {
 
 body {
   margin-bottom: 60px;
+  font-family: var(--dns-font);
+}
+
+body,
+.card,
+.navbar,
+.table,
+.btn,
+.form-control,
+.form-select,
+.badge,
+.modal-content {
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.dns-fade {
+  animation: dns-fade-up 0.3s ease both;
+}
+
+@keyframes dns-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.dns-nav {
+  background-color: var(--bs-body-bg);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.06);
+}
+
+.dns-brand {
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--dns-accent) !important;
+}
+
+.dns-theme-btn {
+  border-radius: 999px;
+  width: 2.25rem;
+  height: 2.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  border-radius: var(--dns-radius);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.05);
+}
+
+.dns-hero {
+  background: linear-gradient(135deg, var(--dns-chip-bg), transparent 70%);
+  border: 1px solid var(--bs-border-color);
+}
+
+.dns-card:hover {
+  box-shadow: 0 4px 14px rgb(0 0 0 / 0.08);
+  transform: translateY(-1px);
+}
+
+.dns-form-card {
+  max-width: 640px;
+}
+
+.dns-chip {
+  background-color: var(--dns-chip-bg) !important;
+  color: var(--dns-chip-fg) !important;
+  font-weight: 500;
+  border-radius: 999px;
+  padding: 0.35em 0.75em;
+}
+
+.dns-meter {
+  height: 0.5rem;
+  border-radius: 999px;
+}
+
+.dns-meter .progress-bar {
+  background-color: var(--dns-accent);
+  border-radius: 999px;
+}
+
+.dns-type {
+  font-weight: 600;
+  border-radius: 0.375rem;
+  letter-spacing: 0.02em;
+}
+
+.dns-type-a { background-color: #dcfce7; color: #166534; }
+.dns-type-aaaa { background-color: #e0f2fe; color: #075985; }
+.dns-type-cname { background-color: #fef3c7; color: #92400e; }
+.dns-type-ns { background-color: #ede9fe; color: #5b21b6; }
+.dns-type-txt { background-color: #fce7f3; color: #9d174d; }
+
+[data-bs-theme="dark"] .dns-type-a { background-color: #14532d; color: #bbf7d0; }
+[data-bs-theme="dark"] .dns-type-aaaa { background-color: #0c4a6e; color: #bae6fd; }
+[data-bs-theme="dark"] .dns-type-cname { background-color: #78350f; color: #fde68a; }
+[data-bs-theme="dark"] .dns-type-ns { background-color: #4c1d95; color: #ddd6fe; }
+[data-bs-theme="dark"] .dns-type-txt { background-color: #831843; color: #fbcfe8; }
+
+.dns-data {
+  max-width: 280px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 .form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
@@ -28,4 +156,14 @@ body {
 
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
   text-align: start;
+}
+
+@media (max-width: 575px) {
+  .table {
+    font-size: 0.85rem;
+  }
+
+  .dns-data {
+    max-width: 140px;
+  }
 }

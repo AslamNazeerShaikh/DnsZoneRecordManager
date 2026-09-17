@@ -1,0 +1,21 @@
+@model ZoneDeleteViewModel
+@{
+    ViewData["Title"] = "Delete zone";
+}
+
+<h1 class="h3 mb-3">Delete zone</h1>
+
+<div class="card border-danger dns-form-card">
+    <div class="card-body">
+        <p class="mb-1">Delete <strong>@Model.Name</strong> and all of its records?</p>
+        <p>
+            <span class="badge dns-chip">@Model.RecordCount records</span>
+            <span class="badge dns-chip">@Model.NsCount NS</span>
+        </p>
+        <p class="text-muted">This cannot be undone. Deleting a zone cascades to every record inside it.</p>
+        <form method="post" asp-action="Delete" asp-route-id="@Model.Id" class="d-flex gap-2">
+            <button type="submit" class="btn btn-danger">Delete zone</button>
+            <a class="btn btn-outline-secondary" asp-action="Index">Cancel</a>
+        </form>
+    </div>
+</div>

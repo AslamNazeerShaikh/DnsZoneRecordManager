@@ -1,9 +1,9 @@
 {
   ".opencode/opencode.json": {
-    "mtime": 1789659675.2520177,
-    "seen": 1789659786.2468019,
-    "ast_hash": "637773d5a689e69a1b7bbbd69288bd12",
-    "semantic_hash": "637773d5a689e69a1b7bbbd69288bd12"
+    "mtime": 1789660042.4741397,
+    "seen": 1789661472.904512,
+    "ast_hash": "216fd321e224e50dbc5896cae8ec1d78",
+    "semantic_hash": ""
   },
   ".opencode/plugins/graphify.js": {
     "mtime": 1789657125.337292,
@@ -18,40 +18,40 @@
     "semantic_hash": "957278e2ac42f57332ac5a8624f6d843"
   },
   "Solution1/src/server/DnsZoneRecordManager.Tests/DnsZoneRecordManager.Tests.csproj": {
-    "mtime": 1789659563.2664895,
-    "seen": 1789659786.246806,
-    "ast_hash": "173d58a63c3b970040107281d76320a1",
-    "semantic_hash": "173d58a63c3b970040107281d76320a1"
+    "mtime": 1789666885.0099738,
+    "seen": 1789667055.297432,
+    "ast_hash": "b308ff6a34c36be9bdc511b5ff84c303",
+    "semantic_hash": ""
   },
   "Solution1/src/server/DnsZoneRecordManager.Tests/UnitTest1.cs": {
-    "mtime": 1789659575.784362,
-    "seen": 1789659786.246806,
-    "ast_hash": "8992287071274d93fac66d1cecdc8ef7",
-    "semantic_hash": "8992287071274d93fac66d1cecdc8ef7"
+    "mtime": 1789659988.0332315,
+    "seen": 1789661472.904516,
+    "ast_hash": "c24e356d60a2e4c3fdc13a8d9b97e529",
+    "semantic_hash": ""
   },
   "Solution1/src/server/DnsZoneRecordManager/Controllers/HomeController.cs": {
-    "mtime": 1789656984.1198869,
-    "seen": 1789659786.246807,
-    "ast_hash": "8435c9b1200803c8523317afd0095812",
-    "semantic_hash": "8435c9b1200803c8523317afd0095812"
+    "mtime": 1789665997.123392,
+    "seen": 1789667055.297437,
+    "ast_hash": "8707bfd1c4939bd6b14ebd09c9dc44cf",
+    "semantic_hash": ""
   },
   "Solution1/src/server/DnsZoneRecordManager/DnsZoneRecordManager.csproj": {
-    "mtime": 1789659562.223606,
-    "seen": 1789659786.246807,
-    "ast_hash": "e6add092ae86925e4ffd0f383f934468",
-    "semantic_hash": "e6add092ae86925e4ffd0f383f934468"
+    "mtime": 1789665853.5145736,
+    "seen": 1789667055.2974389,
+    "ast_hash": "9cde03355eb144a2692817780393a9e4",
+    "semantic_hash": ""
   },
   "Solution1/src/server/DnsZoneRecordManager/Models/ErrorViewModel.cs": {
-    "mtime": 1789656984.1208146,
-    "seen": 1789659786.246808,
-    "ast_hash": "f0714f74e8769248e63db7c85a9d3804",
-    "semantic_hash": "f0714f74e8769248e63db7c85a9d3804"
+    "mtime": 1789665997.1234891,
+    "seen": 1789667055.29744,
+    "ast_hash": "40ce8111ce54e293894b4cb5d391b696",
+    "semantic_hash": ""
   },
   "Solution1/src/server/DnsZoneRecordManager/Program.cs": {
-    "mtime": 1789659516.045675,
-    "seen": 1789659786.246808,
-    "ast_hash": "3e446d0babceec263a1d624689155af0",
-    "semantic_hash": "3e446d0babceec263a1d624689155af0"
+    "mtime": 1789667038.1592953,
+    "seen": 1789667055.297441,
+    "ast_hash": "641522edc3dbbb7417ed336769374bde",
+    "semantic_hash": ""
   },
   "Solution1/src/server/DnsZoneRecordManager/Properties/launchSettings.json": {
     "mtime": 1789656984.1284084,
@@ -60,10 +60,10 @@
     "semantic_hash": "3722d77ab5e431036e4b103449978de0"
   },
   "Solution1/src/server/DnsZoneRecordManager/Views/Home/Index.cshtml": {
-    "mtime": 1789656984.049778,
-    "seen": 1789659786.246809,
-    "ast_hash": "445641c0cb65aff6ed92354e519953d9",
-    "semantic_hash": "445641c0cb65aff6ed92354e519953d9"
+    "mtime": 1789666066.8311188,
+    "seen": 1789667055.2974432,
+    "ast_hash": "25f3e5fd26171b10f4919cbbf6c06bfe",
+    "semantic_hash": ""
   },
   "Solution1/src/server/DnsZoneRecordManager/Views/Home/Privacy.cshtml": {
     "mtime": 1789656984.0506055,
@@ -78,10 +78,10 @@
     "semantic_hash": "939096be653d41fb8a147fb4ff36bfb5"
   },
   "Solution1/src/server/DnsZoneRecordManager/Views/Shared/_Layout.cshtml": {
-    "mtime": 1789656984.0538113,
-    "seen": 1789659786.2468102,
-    "ast_hash": "45674f058117742563c5d94bb19ea940",
-    "semantic_hash": "45674f058117742563c5d94bb19ea940"
+    "mtime": 1789666066.8308945,
+    "seen": 1789667055.297445,
+    "ast_hash": "b87557366ecf7b47b07d05bb53b541e8",
+    "semantic_hash": ""
   },
   "Solution1/src/server/DnsZoneRecordManager/Views/Shared/_ValidationScriptsPartial.cshtml": {
     "mtime": 1789656984.055492,
@@ -90,10 +90,10 @@
     "semantic_hash": "e44d1ba7aa6fc476b40834e79a00fd81"
   },
   "Solution1/src/server/DnsZoneRecordManager/Views/_ViewImports.cshtml": {
-    "mtime": 1789656984.1287158,
-    "seen": 1789659786.246811,
-    "ast_hash": "dba91eb2bcd9c0c9effcf08692278e23",
-    "semantic_hash": "dba91eb2bcd9c0c9effcf08692278e23"
+    "mtime": 1789666066.8159847,
+    "seen": 1789667055.297447,
+    "ast_hash": "c07b3d3d55cb4bfc5e4c8e4269b836d2",
+    "semantic_hash": ""
   },
   "Solution1/src/server/DnsZoneRecordManager/Views/_ViewStart.cshtml": {
     "mtime": 1789656984.1289935,
@@ -114,10 +114,10 @@
     "semantic_hash": "f7e65dde4e5533740a0d57ac9355c0e8"
   },
   "Solution1/src/server/DnsZoneRecordManager/wwwroot/js/site.js": {
-    "mtime": 1789656984.0588636,
-    "seen": 1789659786.2468119,
-    "ast_hash": "53e309eeca51b3b6de20c4d24e1b2b63",
-    "semantic_hash": "53e309eeca51b3b6de20c4d24e1b2b63"
+    "mtime": 1789666146.7231348,
+    "seen": 1789667055.2974489,
+    "ast_hash": "f4d9f85fb59082c12d7a0a85207c5f9a",
+    "semantic_hash": ""
   },
   "Solution2/DnsZoneRecordManager.slnx": {
     "mtime": 1789659578.5115924,
@@ -132,16 +132,16 @@
     "semantic_hash": "dfa1f5f6a7037bf39dc510f30b180002"
   },
   "Solution2/src/client/next.config.ts": {
-    "mtime": 1789657027.0658467,
-    "seen": 1789659786.2468128,
-    "ast_hash": "9b77af189a21a7a64e4bd7a426f64176",
-    "semantic_hash": "9b77af189a21a7a64e4bd7a426f64176"
+    "mtime": 1789660022.2965407,
+    "seen": 1789661472.904524,
+    "ast_hash": "64c776f3faf2c87b0b1e3f8dc9ad8c20",
+    "semantic_hash": ""
   },
   "Solution2/src/client/package.json": {
-    "mtime": 1789657027.0672793,
-    "seen": 1789659786.246814,
-    "ast_hash": "8531f6b207e882bac7eefb69d181de48",
-    "semantic_hash": "8531f6b207e882bac7eefb69d181de48"
+    "mtime": 1789660019.3995261,
+    "seen": 1789661472.904524,
+    "ast_hash": "9e8d964a603863eba4441a5496d05362",
+    "semantic_hash": ""
   },
   "Solution2/src/client/postcss.config.mjs": {
     "mtime": 1789657027.0658514,
@@ -168,28 +168,28 @@
     "semantic_hash": "ee17fd1c97c735e9f3564e3f5251f125"
   },
   "Solution2/src/server/DnsZoneRecordManager.Tests/DnsZoneRecordManager.Tests.csproj": {
-    "mtime": 1789659563.5545452,
-    "seen": 1789659786.246815,
-    "ast_hash": "173d58a63c3b970040107281d76320a1",
-    "semantic_hash": "173d58a63c3b970040107281d76320a1"
+    "mtime": 1789659988.0086877,
+    "seen": 1789661472.904526,
+    "ast_hash": "c14dec2bc6f3d9bd1e8d045628efe67c",
+    "semantic_hash": ""
   },
   "Solution2/src/server/DnsZoneRecordManager.Tests/UnitTest1.cs": {
-    "mtime": 1789659575.7848191,
-    "seen": 1789659786.246816,
-    "ast_hash": "8992287071274d93fac66d1cecdc8ef7",
-    "semantic_hash": "8992287071274d93fac66d1cecdc8ef7"
+    "mtime": 1789659988.0332437,
+    "seen": 1789661472.9045272,
+    "ast_hash": "c24e356d60a2e4c3fdc13a8d9b97e529",
+    "semantic_hash": ""
   },
   "Solution2/src/server/DnsZoneRecordManager/Controllers/WeatherForecastController.cs": {
-    "mtime": 1789656984.6816993,
-    "seen": 1789659786.246816,
-    "ast_hash": "8ff29417ea4a5fb8e0aba365858a9cf7",
-    "semantic_hash": "8ff29417ea4a5fb8e0aba365858a9cf7"
+    "mtime": 1789661417.1206279,
+    "seen": 1789661472.9045272,
+    "ast_hash": "0e5eb0952c5ed9529b0de43d8fc9a211",
+    "semantic_hash": ""
   },
   "Solution2/src/server/DnsZoneRecordManager/DnsZoneRecordManager.csproj": {
-    "mtime": 1789659562.9634345,
-    "seen": 1789659786.246816,
-    "ast_hash": "4ef96d77c77788547be3727cdc4bb787",
-    "semantic_hash": "4ef96d77c77788547be3727cdc4bb787"
+    "mtime": 1789659988.0091166,
+    "seen": 1789661472.904528,
+    "ast_hash": "07e8c4ee8d705cef33b8adf1dfcba84b",
+    "semantic_hash": ""
   },
   "Solution2/src/server/DnsZoneRecordManager/Program.cs": {
     "mtime": 1789659516.0461247,
@@ -220,5 +220,443 @@
     "seen": 1789659786.246818,
     "ast_hash": "f7e65dde4e5533740a0d57ac9355c0e8",
     "semantic_hash": "f7e65dde4e5533740a0d57ac9355c0e8"
+  },
+  ".config/dotnet-tools.json": {
+    "mtime": 1789659961.4758918,
+    "seen": 1789661472.90451,
+    "ast_hash": "b99ff8abcca3dd66ed933c4985b12f5a",
+    "semantic_hash": ""
+  },
+  ".opencode/README.md": {
+    "mtime": 1789660045.6078048,
+    "seen": 1789661472.904531,
+    "ast_hash": "291372b2e91ef805b739a8640251d01c",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/code-reviewer.md": {
+    "mtime": 1789661365.8366327,
+    "seen": 1789661472.904531,
+    "ast_hash": "7fd1c4348cb1cee78d128ca9b571c5d0",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/dns-zone-assistant.md": {
+    "mtime": 1789661365.8224626,
+    "seen": 1789661472.904531,
+    "ast_hash": "67551f6c6c084f5dde9d6e4906552257",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/documentation-writer.md": {
+    "mtime": 1789661372.8865964,
+    "seen": 1789661472.904532,
+    "ast_hash": "8d25303843dd63f427acc0ce02480ffb",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/test-writer.md": {
+    "mtime": 1789661372.886467,
+    "seen": 1789661472.904532,
+    "ast_hash": "f050bd43ae49dd6fa1abd14e161ec996",
+    "semantic_hash": ""
+  },
+  ".opencode/commands/build.md": {
+    "mtime": 1789659708.8925745,
+    "seen": 1789661472.904533,
+    "ast_hash": "479aec41f33c0c18624e8dae7c45b8e9",
+    "semantic_hash": ""
+  },
+  ".opencode/commands/clean.md": {
+    "mtime": 1789659708.8932,
+    "seen": 1789661472.904533,
+    "ast_hash": "425bcf0f87d667307c49aec9645ec6e7",
+    "semantic_hash": ""
+  },
+  ".opencode/commands/dotnet-build.md": {
+    "mtime": 1789659716.2177546,
+    "seen": 1789661472.904533,
+    "ast_hash": "f464f70a475f80127b65d97f2fc90b43",
+    "semantic_hash": ""
+  },
+  ".opencode/commands/dotnet-clean.md": {
+    "mtime": 1789659716.2183561,
+    "seen": 1789661472.904534,
+    "ast_hash": "a0ef6cf03965f6bc78153896266c6222",
+    "semantic_hash": ""
+  },
+  ".opencode/commands/dotnet-lint.md": {
+    "mtime": 1789659716.217867,
+    "seen": 1789661472.904534,
+    "ast_hash": "8b3f2ab151a5e141c1b5c7929f0796b0",
+    "semantic_hash": ""
+  },
+  ".opencode/commands/dotnet-publish.md": {
+    "mtime": 1789659716.2182314,
+    "seen": 1789661472.904535,
+    "ast_hash": "2322a95f78b8ec135cdc76faee546cac",
+    "semantic_hash": ""
+  },
+  ".opencode/commands/dotnet-run.md": {
+    "mtime": 1789659716.21798,
+    "seen": 1789661472.904535,
+    "ast_hash": "337ee00eabcfb2ab0a2b5343e8c41f18",
+    "semantic_hash": ""
+  },
+  ".opencode/commands/dotnet-test.md": {
+    "mtime": 1789659716.2175994,
+    "seen": 1789661472.904535,
+    "ast_hash": "f77b1544803a22e24a1e935aa31217e5",
+    "semantic_hash": ""
+  },
+  ".opencode/commands/format.md": {
+    "mtime": 1789660038.4724724,
+    "seen": 1789661472.904536,
+    "ast_hash": "a50d5daea961567a230c385402a6d779",
+    "semantic_hash": ""
+  },
+  ".opencode/commands/lint.md": {
+    "mtime": 1789659708.893312,
+    "seen": 1789661472.904536,
+    "ast_hash": "0d19f23be1680fc80f2337b09c59bba0",
+    "semantic_hash": ""
+  },
+  ".opencode/commands/run.md": {
+    "mtime": 1789659708.8930538,
+    "seen": 1789661472.904536,
+    "ast_hash": "e6cb3142d2296954ddbfcf720bdf1c33",
+    "semantic_hash": ""
+  },
+  ".opencode/commands/test.md": {
+    "mtime": 1789659708.8928928,
+    "seen": 1789661472.9045372,
+    "ast_hash": "269f2ca0cd673dc05bcd923374a72cfe",
+    "semantic_hash": ""
+  },
+  ".opencode/lsp/default.md": {
+    "mtime": 1789659721.7438333,
+    "seen": 1789661472.9045372,
+    "ast_hash": "7d4ce0c9cdf58af5bea5cf786e87bd63",
+    "semantic_hash": ""
+  },
+  ".opencode/permissions/default.md": {
+    "mtime": 1789659721.7284546,
+    "seen": 1789661472.9045382,
+    "ast_hash": "3b7b192c15f28ecf936aaeea0b19cb46",
+    "semantic_hash": ""
+  },
+  ".opencode/skills/api-design.md": {
+    "mtime": 1789661389.0332503,
+    "seen": 1789661472.9045382,
+    "ast_hash": "ce38559d661eed660851753e4fd986b3",
+    "semantic_hash": ""
+  },
+  ".opencode/skills/graphify/SKILL.md": {
+    "mtime": 1789657125.349686,
+    "seen": 1789661472.9045382,
+    "ast_hash": "2e9858a59406dd2af786cf4cb74bc610",
+    "semantic_hash": ""
+  },
+  ".opencode/skills/graphify/references/add-watch.md": {
+    "mtime": 1789657125.3492901,
+    "seen": 1789661472.9045389,
+    "ast_hash": "d59d027fe449f06aa03905a01184e779",
+    "semantic_hash": ""
+  },
+  ".opencode/skills/graphify/references/exports.md": {
+    "mtime": 1789657125.3482425,
+    "seen": 1789661472.9045389,
+    "ast_hash": "9da2a2152e60a22f07f05fed5158f287",
+    "semantic_hash": ""
+  },
+  ".opencode/skills/graphify/references/extraction-spec.md": {
+    "mtime": 1789657125.3485072,
+    "seen": 1789661472.9045389,
+    "ast_hash": "42fef56a01698118f7fd722acdadea34",
+    "semantic_hash": ""
+  },
+  ".opencode/skills/graphify/references/github-and-merge.md": {
+    "mtime": 1789657125.3476872,
+    "seen": 1789661472.9045398,
+    "ast_hash": "cde13df085e4c492aeb7ba298a996d0d",
+    "semantic_hash": ""
+  },
+  ".opencode/skills/graphify/references/hooks.md": {
+    "mtime": 1789657125.3490348,
+    "seen": 1789661472.9045398,
+    "ast_hash": "3f545db6ce646650bb9de588f5512a27",
+    "semantic_hash": ""
+  },
+  ".opencode/skills/graphify/references/query.md": {
+    "mtime": 1789657125.3479793,
+    "seen": 1789661472.9045398,
+    "ast_hash": "3c46f8ad006874260614ed8657d02307",
+    "semantic_hash": ""
+  },
+  ".opencode/skills/graphify/references/transcribe.md": {
+    "mtime": 1789657125.347456,
+    "seen": 1789661472.904541,
+    "ast_hash": "67b6a5fa6c0974e18f60db9f8932fbd8",
+    "semantic_hash": ""
+  },
+  ".opencode/skills/graphify/references/update.md": {
+    "mtime": 1789657125.3488097,
+    "seen": 1789661472.904541,
+    "ast_hash": "9378bd03d56baaf78bd738ab3848f142",
+    "semantic_hash": ""
+  },
+  ".opencode/skills/testing-strategy.md": {
+    "mtime": 1789661389.0334053,
+    "seen": 1789661472.904541,
+    "ast_hash": "16000ad215d06b9418a6ce1cf9c7b29c",
+    "semantic_hash": ""
+  },
+  "AGENTS.md": {
+    "mtime": 1789657125.3532557,
+    "seen": 1789661472.904542,
+    "ast_hash": "6a47d64fcc136324ca395065a707ef76",
+    "semantic_hash": ""
+  },
+  "LICENSE.md": {
+    "mtime": 1789660182.551683,
+    "seen": 1789661472.904542,
+    "ast_hash": "eb1e647870add0502f8f010b19de32af",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1789667024.528627,
+    "seen": 1789667055.297469,
+    "ast_hash": "1a483aa5b1bd841231306cf00c546cd6",
+    "semantic_hash": ""
+  },
+  "Solution1/src/server/DnsZoneRecordManager/wwwroot/lib/jquery-validation-unobtrusive/LICENSE.txt": {
+    "mtime": 1789656984.1098535,
+    "seen": 1789661472.904543,
+    "ast_hash": "ba2bed45d99b13d4c31485d0631ae675",
+    "semantic_hash": ""
+  },
+  "Solution1/src/server/DnsZoneRecordManager/wwwroot/lib/jquery-validation/LICENSE.md": {
+    "mtime": 1789656984.098139,
+    "seen": 1789661472.904543,
+    "ast_hash": "41ef1b919db5e3aeaf47308518e7bcee",
+    "semantic_hash": ""
+  },
+  "Solution1/src/server/DnsZoneRecordManager/wwwroot/lib/jquery/LICENSE.txt": {
+    "mtime": 1789656984.0947642,
+    "seen": 1789661472.904544,
+    "ast_hash": "f661402a551136dbe74282edc5bea28d",
+    "semantic_hash": ""
+  },
+  "Solution2/src/client/AGENTS.md": {
+    "mtime": 1789657115.2342505,
+    "seen": 1789661472.904544,
+    "ast_hash": "01e8142356e15c3404e0d84c48187cd0",
+    "semantic_hash": ""
+  },
+  "Solution2/src/client/CLAUDE.md": {
+    "mtime": 1789657115.2344224,
+    "seen": 1789661472.904544,
+    "ast_hash": "5c27369b226fcf2be8a6cfe52224e767",
+    "semantic_hash": ""
+  },
+  "Solution2/src/client/README.md": {
+    "mtime": 1789657027.0658407,
+    "seen": 1789661472.904545,
+    "ast_hash": "f15aaa42d5d299d091b1171097ea56ad",
+    "semantic_hash": ""
+  },
+  "docs/REQUIREMENTS_ANALYSIS.md": {
+    "mtime": 1789664763.7118437,
+    "seen": 1789667055.297472,
+    "ast_hash": "b239814020abeed7cead2a834cc729ae",
+    "semantic_hash": ""
+  },
+  "docs/TOOLCHAIN_AND_PACKAGES.md": {
+    "mtime": 1789667037.7252915,
+    "seen": 1789667055.297473,
+    "ast_hash": "0baef66f7a9ecd4fba604a0eacaa03b8",
+    "semantic_hash": ""
+  },
+  "Solution2/src/client/public/file.svg": {
+    "mtime": 1789657027.066043,
+    "seen": 1789661472.904546,
+    "ast_hash": "d09f95206c3fa0bb9bd9fefabfd0ea71",
+    "semantic_hash": ""
+  },
+  "Solution2/src/client/public/globe.svg": {
+    "mtime": 1789657027.066207,
+    "seen": 1789661472.904546,
+    "ast_hash": "2aaafa6a49b6563925fe440891e32717",
+    "semantic_hash": ""
+  },
+  "Solution2/src/client/public/next.svg": {
+    "mtime": 1789657027.0660875,
+    "seen": 1789661472.904547,
+    "ast_hash": "8e061864f388b47f33a1c3780831193e",
+    "semantic_hash": ""
+  },
+  "Solution2/src/client/public/vercel.svg": {
+    "mtime": 1789657027.0662723,
+    "seen": 1789661472.904547,
+    "ast_hash": "c0af2f507b369b085b35ef4bbe3bcf1e",
+    "semantic_hash": ""
+  },
+  "Solution2/src/client/public/window.svg": {
+    "mtime": 1789657027.0661807,
+    "seen": 1789661472.9045482,
+    "ast_hash": "a2760511c65806022ad20adf74370ff3",
+    "semantic_hash": ""
+  },
+  "Solution1/src/server/DnsZoneRecordManager.Tests/FoundationTests.cs": {
+    "mtime": 1789667038.1595566,
+    "seen": 1789667055.2974331,
+    "ast_hash": "1540be09baa621c1f56a7179d4b76c25",
+    "semantic_hash": ""
+  },
+  "Solution1/src/server/DnsZoneRecordManager.Tests/IntegrationTests.cs": {
+    "mtime": 1789667038.1689417,
+    "seen": 1789667055.297434,
+    "ast_hash": "49f440c31b7f6b27ff509628d2f0d596",
+    "semantic_hash": ""
+  },
+  "Solution1/src/server/DnsZoneRecordManager.Tests/RecordServiceTests.cs": {
+    "mtime": 1789667038.163311,
+    "seen": 1789667055.2974348,
+    "ast_hash": "446ca3c72bed67725a592199d61e3242",
+    "semantic_hash": ""
+  },
+  "Solution1/src/server/DnsZoneRecordManager.Tests/RecordTypesTests.cs": {
+    "mtime": 1789667038.1624348,
+    "seen": 1789667055.2974348,
+    "ast_hash": "adb737ed37c25804061d12cebd714ba5",
+    "semantic_hash": ""
+  },
+  "Solution1/src/server/DnsZoneRecordManager.Tests/ValidatorsTests.cs": {
+    "mtime": 1789667038.1613245,
+    "seen": 1789667055.297436,
+    "ast_hash": "ee8329ea212261ed5eaf8c2e0d627b6d",
+    "semantic_hash": ""
+  },
+  "Solution1/src/server/DnsZoneRecordManager.Tests/ZoneServiceTests.cs": {
+    "mtime": 1789667038.160325,
+    "seen": 1789667055.297437,
+    "ast_hash": "e403ff59863a86e8786b52d8d0378a71",
+    "semantic_hash": ""
+  },
+  "Solution1/src/server/DnsZoneRecordManager/Controllers/RecordsController.cs": {
+    "mtime": 1789667038.1757665,
+    "seen": 1789667055.297437,
+    "ast_hash": "c1313ca49e2b236cc1fff49a3964bbc4",
+    "semantic_hash": ""
+  },
+  "Solution1/src/server/DnsZoneRecordManager/Controllers/ZonesController.cs": {
+    "mtime": 1789667038.1657841,
+    "seen": 1789667055.297438,
+    "ast_hash": "18d96542d5a9a3c2d7e03a8ec6b90efa",
+    "semantic_hash": ""
+  },
+  "Solution1/src/server/DnsZoneRecordManager/Data/AppDbContext.cs": {
+    "mtime": 1789667038.1649725,
+    "seen": 1789667055.297438,
+    "ast_hash": "4c2d58d60c574db951b778a8602afb6a",
+    "semantic_hash": ""
+  },
+  "Solution1/src/server/DnsZoneRecordManager/Data/DbSeeder.cs": {
+    "mtime": 1789667038.1590304,
+    "seen": 1789667055.297438,
+    "ast_hash": "301b84b72ca2fac859133f41a48c8c44",
+    "semantic_hash": ""
+  },
+  "Solution1/src/server/DnsZoneRecordManager/Data/GenericRepository.cs": {
+    "mtime": 1789667038.1674116,
+    "seen": 1789667055.2974389,
+    "ast_hash": "ec85da5f00aedb1e0fa47d2de1d19e9c",
+    "semantic_hash": ""
+  },
+  "Solution1/src/server/DnsZoneRecordManager/Data/UnitOfWork.cs": {
+    "mtime": 1789665866.195242,
+    "seen": 1789667055.2974389,
+    "ast_hash": "58d8aaded93c6edc5afcb472e0bce6bc",
+    "semantic_hash": ""
+  },
+  "Solution1/src/server/DnsZoneRecordManager/Models/DnsRecord.cs": {
+    "mtime": 1789665853.5144382,
+    "seen": 1789667055.29744,
+    "ast_hash": "fdfcbfaea5b36b39e85538587d03417e",
+    "semantic_hash": ""
+  },
+  "Solution1/src/server/DnsZoneRecordManager/Models/DnsZone.cs": {
+    "mtime": 1789665853.5142877,
+    "seen": 1789667055.29744,
+    "ast_hash": "d1ff6f87ad973430c76df9bf28c4454f",
+    "semantic_hash": ""
+  },
+  "Solution1/src/server/DnsZoneRecordManager/Services/RecordService.cs": {
+    "mtime": 1789667038.166043,
+    "seen": 1789667055.297441,
+    "ast_hash": "adb76603bae256c8d47401dbdba04a35",
+    "semantic_hash": ""
+  },
+  "Solution1/src/server/DnsZoneRecordManager/Services/ZoneService.cs": {
+    "mtime": 1789667038.1755366,
+    "seen": 1789667055.297442,
+    "ast_hash": "55c819b5a014883df193bae1d34fd154",
+    "semantic_hash": ""
+  },
+  "Solution1/src/server/DnsZoneRecordManager/Validation/DnsRules.cs": {
+    "mtime": 1789667038.1594992,
+    "seen": 1789667055.297442,
+    "ast_hash": "c448e60eab07d8a6bc0c62990289aaaf",
+    "semantic_hash": ""
+  },
+  "Solution1/src/server/DnsZoneRecordManager/Validation/Validators.cs": {
+    "mtime": 1789667038.1659698,
+    "seen": 1789667055.297442,
+    "ast_hash": "30f4a5a57ea258f28086344379973c2d",
+    "semantic_hash": ""
+  },
+  "Solution1/src/server/DnsZoneRecordManager/ViewModels/DnsViewModels.cs": {
+    "mtime": 1789667038.1590188,
+    "seen": 1789667055.2974432,
+    "ast_hash": "2be8132b16b909b1194da2a54c29eafb",
+    "semantic_hash": ""
+  },
+  "Solution1/src/server/DnsZoneRecordManager/Views/Records/Create.cshtml": {
+    "mtime": 1789666275.2262518,
+    "seen": 1789667055.297444,
+    "ast_hash": "a69aaf482a8929b7095ccac9d6531aff",
+    "semantic_hash": ""
+  },
+  "Solution1/src/server/DnsZoneRecordManager/Views/Records/Delete.cshtml": {
+    "mtime": 1789666134.5186658,
+    "seen": 1789667055.297444,
+    "ast_hash": "b786384523aee143429a9bef25043470",
+    "semantic_hash": ""
+  },
+  "Solution1/src/server/DnsZoneRecordManager/Views/Records/Index.cshtml": {
+    "mtime": 1789666124.9459171,
+    "seen": 1789667055.297445,
+    "ast_hash": "85ce0fee67d56e9781ec5d6e5e96883e",
+    "semantic_hash": ""
+  },
+  "Solution1/src/server/DnsZoneRecordManager/Views/Zones/Create.cshtml": {
+    "mtime": 1789666275.2264383,
+    "seen": 1789667055.2974458,
+    "ast_hash": "8f0945287a714d00fbc5d5d42b9bc3dd",
+    "semantic_hash": ""
+  },
+  "Solution1/src/server/DnsZoneRecordManager/Views/Zones/Delete.cshtml": {
+    "mtime": 1789666085.2674148,
+    "seen": 1789667055.297447,
+    "ast_hash": "b3b44b8daa139670ed6bb574f4b1b52a",
+    "semantic_hash": ""
+  },
+  "Solution1/src/server/DnsZoneRecordManager/Views/Zones/Index.cshtml": {
+    "mtime": 1789666076.4516902,
+    "seen": 1789667055.297447,
+    "ast_hash": "e6cdc80c1e1677a4a26718f7ee450f9a",
+    "semantic_hash": ""
+  },
+  "Solution1/README.md": {
+    "mtime": 1789666990.553148,
+    "seen": 1789667055.297469,
+    "ast_hash": "c01b24edf41d25e17320a625c34eed22",
+    "semantic_hash": ""
   }
 }
