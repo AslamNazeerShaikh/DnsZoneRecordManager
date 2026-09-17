@@ -1,11 +1,11 @@
 # Graph Report - DnsZoneRecordManager  (2026-09-17)
 
 ## Corpus Check
-- 103 files · ~37,363 words
+- 104 files · ~37,914 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 724 nodes · 1157 edges · 76 communities (31 shown, 15 thin omitted)
+- 741 nodes · 1181 edges · 77 communities (32 shown, 15 thin omitted)
 - Extraction: 94% EXTRACTED · 6% INFERRED · 0% AMBIGUOUS · INFERRED: 67 edges (avg confidence: 0.84)
 - Token cost: 0 input · 0 output
 
@@ -24,7 +24,7 @@
 - http
 - http
 - HomeController
-- DnsRecord
+- RecordType
 - ServiceResult
 - .New
 - Task
@@ -50,9 +50,9 @@
 - AGENTS.md
 - extraction-spec.md
 - client/AGENTS.md
-- .BuildApp
+- DnsRecord
 - IGenericRepository
-- ValidatorsTests
+- RecordDataValidators.cs
 - RecordDeleteViewModel
 - Solution1 — DNS Manager (ASP.NET Core MVC)
 - Records/Create.cshtml
@@ -61,14 +61,15 @@
 - Zones/Create.cshtml
 - Zones/Delete.cshtml
 - Zones/Index.cshtml
+- WeatherForecast
 
 ## God Nodes (most connected - your core abstractions)
 1. `DnsRecord` - 32 edges
 2. `ServiceResult` - 29 edges
-3. `DnsZone` - 26 edges
-4. `RecordType` - 25 edges
-5. `DnsZoneRecordManager.Models` - 20 edges
-6. `RecordService` - 17 edges
+3. `RecordType` - 26 edges
+4. `DnsZone` - 26 edges
+5. `DnsZoneRecordManager.Models` - 21 edges
+6. `RecordService` - 18 edges
 7. `AppDbContext` - 16 edges
 8. `compilerOptions` - 16 edges
 9. `IUnitOfWork` - 15 edges
@@ -81,15 +82,15 @@
   Solution1/src/server/DnsZoneRecordManager.Tests/IntegrationTests.cs → Solution1/src/server/DnsZoneRecordManager/Program.cs
 - `RecordsController` --references--> `IZoneService`  [EXTRACTED]
   Solution1/src/server/DnsZoneRecordManager/Controllers/RecordsController.cs → Solution1/src/server/DnsZoneRecordManager/Services/ZoneService.cs
-- `AppDbContext` --references--> `DnsRecord`  [EXTRACTED]
-  Solution1/src/server/DnsZoneRecordManager/Data/AppDbContext.cs → Solution1/src/server/DnsZoneRecordManager/Models/DnsRecord.cs
-- `AppDbContext` --references--> `DnsZone`  [EXTRACTED]
-  Solution1/src/server/DnsZoneRecordManager/Data/AppDbContext.cs → Solution1/src/server/DnsZoneRecordManager/Models/DnsZone.cs
+- `IUnitOfWork` --references--> `IGenericRepository`  [EXTRACTED]
+  Solution1/src/server/DnsZoneRecordManager/Data/UnitOfWork.cs → Solution1/src/server/DnsZoneRecordManager/Data/GenericRepository.cs
+- `UnitOfWork` --references--> `IGenericRepository`  [EXTRACTED]
+  Solution1/src/server/DnsZoneRecordManager/Data/UnitOfWork.cs → Solution1/src/server/DnsZoneRecordManager/Data/GenericRepository.cs
 
 ## Import Cycles
 - None detected.
 
-## Communities (76 total, 15 thin omitted)
+## Communities (77 total, 15 thin omitted)
 
 ### Community 0 - "Solution1/src/server/DnsZoneRecordManager.Tests/DnsZoneRecordManager.Tests.csproj"
 Cohesion: 0.11
@@ -108,8 +109,8 @@ Cohesion: 0.16
 Nodes (11): AbstractValidator, Fact, IZoneLookup, ToolchainSmokeTests, ZoneInput, ZoneInputValidator, Fact, IZoneLookup (+3 more)
 
 ### Community 4 - "DnsZoneRecordManager.Models"
-Cohesion: 0.06
-Nodes (30): ControllerBase, DnsZoneRecordManager.Validation, DnsZoneRecordManager.Controllers, DnsZoneRecordManager.Models, DnsZoneRecordManager.Data, DnsZoneRecordManager.ViewModels, DnsZoneRecordManager.Tests, DnsZoneRecordManager.Services (+22 more)
+Cohesion: 0.14
+Nodes (12): DnsZoneRecordManager.Validation, DnsZoneRecordManager.Controllers, DnsZoneRecordManager.Models, DnsZoneRecordManager.Data, DnsZoneRecordManager.ViewModels, DnsZoneRecordManager.Tests, DnsZoneRecordManager.Services, ZoneDeleteViewModel (+4 more)
 
 ### Community 5 - "compilerOptions"
 Cohesion: 0.11
@@ -127,21 +128,21 @@ Nodes (15): ASPNETCORE_ENVIRONMENT, applicationUrl, commandName, dotnetRunMessag
 Cohesion: 0.20
 Nodes (10): Controller, ResponseCache, IActionResult, HomeController, ErrorViewModel, RequestId, ShowRequestId, Fact (+2 more)
 
-### Community 9 - "DnsRecord"
+### Community 9 - "RecordType"
 Cohesion: 0.08
-Nodes (35): ActionName, HttpPost, IActionResult, IEnumerable, List, RecordFormViewModel, SelectListItem, Task (+27 more)
+Nodes (27): ActionName, HttpPost, IActionResult, IEnumerable, List, RecordFormViewModel, SelectListItem, Task (+19 more)
 
 ### Community 10 - "ServiceResult"
-Cohesion: 0.09
-Nodes (31): ICollection, ActionName, HttpPost, IActionResult, IEnumerable, Task, ValidateAntiForgeryToken, ZoneFormViewModel (+23 more)
+Cohesion: 0.10
+Nodes (25): ActionName, HttpPost, IActionResult, IEnumerable, Task, ValidateAntiForgeryToken, ZoneFormViewModel, ZonesController (+17 more)
 
 ### Community 11 - ".New"
-Cohesion: 0.15
-Nodes (15): Task, IUnitOfWork, Records, Zones, UnitOfWork, Records, Zones, Fact (+7 more)
+Cohesion: 0.19
+Nodes (12): IUnitOfWork, Records, Zones, Fact, Task, RecordServiceTests, Task, TestUow (+4 more)
 
 ### Community 12 - "Task"
 Cohesion: 0.23
-Nodes (12): Dictionary, HttpClient, HttpResponseMessage, IClassFixture, Fact, Task, DnsWebFactory, FlowTests (+4 more)
+Nodes (12): HttpClient, HttpResponseMessage, IClassFixture, Dictionary, Fact, Task, DnsWebFactory, FlowTests (+4 more)
 
 ### Community 24 - "What You Must Do When Invoked"
 Cohesion: 0.08
@@ -195,44 +196,48 @@ Nodes (3): For --cluster-only, For --update (incremental re-extraction), graphif
 Cohesion: 0.50
 Nodes (3): Deploy on Vercel, Getting Started, Learn More
 
-### Community 65 - ".BuildApp"
-Cohesion: 0.12
-Nodes (14): DbContext, ExcludeFromCodeCoverage, IWebHostBuilder, ModelBuilder, DbSet, AppDbContext, Records, Zones (+6 more)
+### Community 65 - "DnsRecord"
+Cohesion: 0.06
+Nodes (42): DbContext, ExcludeFromCodeCoverage, ICollection, IWebHostBuilder, ModelBuilder, DbSet, AppDbContext, Records (+34 more)
 
 ### Community 66 - "IGenericRepository"
 Cohesion: 0.20
 Nodes (7): Expression, Func, DbSet, List, Task, GenericRepository, IGenericRepository
 
-### Community 67 - "ValidatorsTests"
-Cohesion: 0.21
-Nodes (6): Regex, Fact, ValidatorsTests, DnsRules, RecordValidator, ZoneValidator
+### Community 67 - "RecordDataValidators.cs"
+Cohesion: 0.15
+Nodes (9): Regex, DnsRules, Dictionary, HostnameValidator, IPv4Validator, IPv6Validator, IRecordDataValidator, RecordDataValidators (+1 more)
 
 ### Community 68 - "RecordDeleteViewModel"
 Cohesion: 0.22
 Nodes (9): RecordDeleteViewModel, Data, Fqdn, Id, Name, Ttl, Type, ZoneId (+1 more)
 
 ### Community 69 - "Solution1 — DNS Manager (ASP.NET Core MVC)"
-Cohesion: 0.29
-Nodes (6): Build / run / test, Cut for the 8h box, Features (every REQUIREMENTS §8 item), Notes / assumptions (see REQUIREMENTS §7 resolutions), Solution1 — DNS Manager (ASP.NET Core MVC), Stack
+Cohesion: 0.22
+Nodes (8): Build / run / test, Cut for the 8h box, Design patterns (GoF, as needed — nothing speculative), Features (every REQUIREMENTS §8 item), Notes / assumptions (see REQUIREMENTS §7 resolutions), Security audit (against the 25-point CRUD checklist), Solution1 — DNS Manager (ASP.NET Core MVC), Stack
+
+### Community 76 - "WeatherForecast"
+Cohesion: 0.11
+Nodes (13): ControllerBase, DnsZoneRecordManager, DateOnly, HttpGet, IEnumerable, WeatherForecastController, Program, WeatherForecast (+5 more)
 
 ## Knowledge Gaps
-- **302 isolated node(s):** `$schema`, `version`, `model`, `small_model`, `reasoningEffort` (+297 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 395 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **304 isolated node(s):** `$schema`, `version`, `model`, `small_model`, `reasoningEffort` (+299 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 404 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **15 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `DnsRecord` connect `DnsRecord` to `.BuildApp`, `ValidatorsTests`, `DnsZoneRecordManager.Models`, `ServiceResult`, `.New`?**
+- **Why does `DnsRecord` connect `DnsRecord` to `RecordType`, `ServiceResult`, `.New`?**
   _High betweenness centrality (0.047) - this node is a cross-community bridge._
-- **Why does `RecordType` connect `DnsRecord` to `ValidatorsTests`, `DnsZoneRecordManager.Models`, `RecordFormViewModel`, `RecordDeleteViewModel`?**
-  _High betweenness centrality (0.038) - this node is a cross-community bridge._
-- **Why does `DnsZoneRecordManager.Models` connect `DnsZoneRecordManager.Models` to `ValidatorsTests`, `HomeController`, `DnsRecord`, `ServiceResult`, `.New`?**
-  _High betweenness centrality (0.035) - this node is a cross-community bridge._
+- **Why does `DnsZoneRecordManager.Models` connect `DnsZoneRecordManager.Models` to `DnsRecord`, `RecordType`, `RecordDataValidators.cs`, `HomeController`?**
+  _High betweenness centrality (0.043) - this node is a cross-community bridge._
+- **Why does `RecordType` connect `RecordType` to `DnsRecord`, `RecordDataValidators.cs`, `RecordDeleteViewModel`, `ServiceResult`, `RecordFormViewModel`?**
+  _High betweenness centrality (0.040) - this node is a cross-community bridge._
 - **Are the 4 inferred relationships involving `DnsZone` (e.g. with `.SeedAsync()` and `.SeedZoneAsync()`) actually correct?**
   _`DnsZone` has 4 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `$schema`, `version`, `model` to the rest of the system?**
-  _302 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _304 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Solution1/src/server/DnsZoneRecordManager.Tests/DnsZoneRecordManager.Tests.csproj` be split into smaller, more focused modules?**
   _Cohesion score 0.1111111111111111 - nodes in this community are weakly interconnected._
 - **Should `opencode.json` be split into smaller, more focused modules?**

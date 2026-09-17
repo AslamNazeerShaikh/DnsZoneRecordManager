@@ -106,7 +106,7 @@ namespace DnsZoneRecordManager.Controllers
             );
             if (!result.Success)
             {
-                if (result.Errors.Contains("Zone not found."))
+                if (result.HasError(ErrorKind.NotFound))
                 {
                     return NotFound();
                 }
@@ -170,7 +170,7 @@ namespace DnsZoneRecordManager.Controllers
             );
             if (!result.Success)
             {
-                if (result.Errors.Contains("Record not found."))
+                if (result.HasError(ErrorKind.NotFound))
                 {
                     return NotFound();
                 }
@@ -223,14 +223,12 @@ namespace DnsZoneRecordManager.Controllers
             var result = await _records.DeleteAsync(id);
             if (!result.Success)
             {
-                if (result.Errors.Contains("Record not found."))
+                if (result.HasError(ErrorKind.NotFound))
                 {
                     return NotFound();
                 }
 
-                var current = await _records.GetAsync(id);
-                var record = current.Data!;
-                TempData["Toast"] = string.Join(" ", result.Errors);
+                TempData["Toast"] = string.Join(" ", result.Errors.Select(e => e.Message));
                 TempData["ToastType"] = "danger";
                 return RedirectToAction(nameof(Delete), new { id });
             }
@@ -277,11 +275,11 @@ namespace DnsZoneRecordManager.Controllers
             vm.ZoneName = zones.Data!.Find(z => z.Id == vm.ZoneId)?.Name ?? vm.ZoneName;
         }
 
-        private void AddErrors(IEnumerable<string> errors)
+        private void AddErrors(IEnumerable<ServiceError> errors)
         {
             foreach (var error in errors)
             {
-                ModelState.AddModelError(string.Empty, error);
+                ModelState.AddModelError(string.Empty, error.Message);
             }
         }
     }

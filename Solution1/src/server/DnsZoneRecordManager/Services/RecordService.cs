@@ -49,7 +49,7 @@ namespace DnsZoneRecordManager.Services
         /// <param name="zoneId">Optional zone filter.</param>
         /// <param name="search">Optional case-insensitive name/data filter.</param>
         /// <param name="type">Optional type filter.</param>
-        /// <returns>Rows plus meter values, or "zone not found".</returns>
+        /// <returns>Rows plus meter values, or a <see cref="ErrorKind.NotFound"/> failure. Never throws for domain failures.</returns>
         Task<ServiceResult<RecordListData>> ListAsync(
             int? zoneId,
             string? search,
@@ -58,7 +58,7 @@ namespace DnsZoneRecordManager.Services
 
         /// <summary>Gets one record with its zone.</summary>
         /// <param name="id">Record id.</param>
-        /// <returns>The record, or "not found".</returns>
+        /// <returns>The record, or a <see cref="ErrorKind.NotFound"/> failure. Never throws for domain failures.</returns>
         Task<ServiceResult<DnsRecord>> GetAsync(int id);
 
         /// <summary>Creates a record (duplicate, CNAME, and 10-record ceiling enforced).</summary>
@@ -67,7 +67,7 @@ namespace DnsZoneRecordManager.Services
         /// <param name="type">Record type.</param>
         /// <param name="ttl">TTL in seconds.</param>
         /// <param name="data">RDATA value.</param>
-        /// <returns>The created record, or guided failures.</returns>
+        /// <returns>The created record, or <see cref="ErrorKind.NotFound"/> / <see cref="ErrorKind.Validation"/> / <see cref="ErrorKind.Conflict"/> / <see cref="ErrorKind.RuleViolation"/> failures. Never throws for domain failures.</returns>
         Task<ServiceResult<DnsRecord>> CreateAsync(
             int zoneId,
             string name,
@@ -82,7 +82,7 @@ namespace DnsZoneRecordManager.Services
         /// <param name="type">New type.</param>
         /// <param name="ttl">New TTL.</param>
         /// <param name="data">New RDATA value.</param>
-        /// <returns>The updated record, or guided failures.</returns>
+        /// <returns>The updated record, or <see cref="ErrorKind.NotFound"/> / <see cref="ErrorKind.Validation"/> / <see cref="ErrorKind.Conflict"/> / <see cref="ErrorKind.RuleViolation"/> failures. Never throws for domain failures.</returns>
         Task<ServiceResult<DnsRecord>> UpdateAsync(
             int id,
             string name,
@@ -93,7 +93,7 @@ namespace DnsZoneRecordManager.Services
 
         /// <summary>Deletes a record (4-NS floor enforced).</summary>
         /// <param name="id">Record id.</param>
-        /// <returns>The deleted id, or guided failures.</returns>
+        /// <returns>The deleted id, or <see cref="ErrorKind.NotFound"/> / <see cref="ErrorKind.RuleViolation"/> failures. Never throws for domain failures.</returns>
         Task<ServiceResult<int>> DeleteAsync(int id);
 
         /// <summary>Exports the filtered grid as records-only CSV.</summary>
@@ -156,7 +156,10 @@ namespace DnsZoneRecordManager.Services
                 var zone = await _uow.Zones.GetByIdAsync(zoneId.Value);
                 if (zone == null)
                 {
-                    return ServiceResult<RecordListData>.Fail(["Zone not found."]);
+                    return ServiceResult<RecordListData>.Fail(
+                        ErrorKind.NotFound,
+                        "Zone not found."
+                    );
                 }
 
                 zoneName = zone.Name;
@@ -211,7 +214,7 @@ namespace DnsZoneRecordManager.Services
             var records = await _uow.Records.FindAsync(r => r.Id == id, r => r.Zone);
             var record = records.FirstOrDefault();
             return record == null
-                ? ServiceResult<DnsRecord>.Fail(["Record not found."])
+                ? ServiceResult<DnsRecord>.Fail(ErrorKind.NotFound, "Record not found.")
                 : ServiceResult<DnsRecord>.Ok(record);
         }
 
@@ -227,7 +230,7 @@ namespace DnsZoneRecordManager.Services
             var zone = await _uow.Zones.GetByIdAsync(zoneId);
             if (zone == null)
             {
-                return ServiceResult<DnsRecord>.Fail(["Zone not found."]);
+                return ServiceResult<DnsRecord>.Fail(ErrorKind.NotFound, "Zone not found.");
             }
 
             var record = new DnsRecord
@@ -241,7 +244,10 @@ namespace DnsZoneRecordManager.Services
             var validation = await _validator.ValidateAsync(record);
             if (!validation.IsValid)
             {
-                return ServiceResult<DnsRecord>.Fail(validation.Errors.Select(e => e.ErrorMessage));
+                return ServiceResult<DnsRecord>.Fail(
+                    ErrorKind.Validation,
+                    validation.Errors.Select(e => e.ErrorMessage)
+                );
             }
 
             var siblings = await _uow.Records.FindAsync(r => r.ZoneId == zoneId);
@@ -276,7 +282,7 @@ namespace DnsZoneRecordManager.Services
             var record = await _uow.Records.GetByIdAsync(id);
             if (record == null)
             {
-                return ServiceResult<DnsRecord>.Fail(["Record not found."]);
+                return ServiceResult<DnsRecord>.Fail(ErrorKind.NotFound, "Record not found.");
             }
 
             var candidate = new DnsRecord
@@ -289,7 +295,10 @@ namespace DnsZoneRecordManager.Services
             var validation = await _validator.ValidateAsync(candidate);
             if (!validation.IsValid)
             {
-                return ServiceResult<DnsRecord>.Fail(validation.Errors.Select(e => e.ErrorMessage));
+                return ServiceResult<DnsRecord>.Fail(
+                    ErrorKind.Validation,
+                    validation.Errors.Select(e => e.ErrorMessage)
+                );
             }
 
             var siblings = await _uow.Records.FindAsync(r => r.ZoneId == record.ZoneId);
@@ -299,7 +308,10 @@ namespace DnsZoneRecordManager.Services
                 && siblings.Count(r => r.Type == RecordType.NS) <= DnsRules.MinNsPerZone
             )
             {
-                return ServiceResult<DnsRecord>.Fail(["A zone must keep at least 4 NS records."]);
+                return ServiceResult<DnsRecord>.Fail(
+                    ErrorKind.RuleViolation,
+                    "A zone must keep at least 4 NS records."
+                );
             }
 
             var guard = GuardSiblings(siblings, id, candidate.Name, candidate.Type, candidate.Data);
@@ -325,7 +337,7 @@ namespace DnsZoneRecordManager.Services
             var record = await _uow.Records.GetByIdAsync(id);
             if (record == null)
             {
-                return ServiceResult<int>.Fail(["Record not found."]);
+                return ServiceResult<int>.Fail(ErrorKind.NotFound, "Record not found.");
             }
 
             if (record.Type == RecordType.NS)
@@ -333,7 +345,10 @@ namespace DnsZoneRecordManager.Services
                 var siblings = await _uow.Records.FindAsync(r => r.ZoneId == record.ZoneId);
                 if (siblings.Count(r => r.Type == RecordType.NS) <= DnsRules.MinNsPerZone)
                 {
-                    return ServiceResult<int>.Fail(["A zone must keep at least 4 NS records."]);
+                    return ServiceResult<int>.Fail(
+                        ErrorKind.RuleViolation,
+                        "A zone must keep at least 4 NS records."
+                    );
                 }
             }
 
@@ -383,7 +398,14 @@ namespace DnsZoneRecordManager.Services
                 : value;
         }
 
-        private static string? GuardSiblings(
+        /// <summary>Checks duplicates, CNAME exclusivity, and the 10-record ceiling against sibling records.</summary>
+        /// <param name="siblings">All records in the zone.</param>
+        /// <param name="selfId">Id to exclude (updates) or null (creates).</param>
+        /// <param name="name">Candidate owner name.</param>
+        /// <param name="type">Candidate type.</param>
+        /// <param name="data">Candidate data.</param>
+        /// <returns>A typed guard error, or null when the candidate is allowed.</returns>
+        private static ServiceError? GuardSiblings(
             List<DnsRecord> siblings,
             int? selfId,
             string name,
@@ -397,12 +419,18 @@ namespace DnsZoneRecordManager.Services
                 )
             )
             {
-                return "This exact record already exists in the zone.";
+                return new ServiceError(
+                    ErrorKind.Conflict,
+                    "This exact record already exists in the zone."
+                );
             }
 
             if (type == RecordType.CNAME && siblings.Any(r => r.Id != selfId && r.Name == name))
             {
-                return "A name with a CNAME record cannot hold any other record.";
+                return new ServiceError(
+                    ErrorKind.RuleViolation,
+                    "A name with a CNAME record cannot hold any other record."
+                );
             }
 
             if (
@@ -410,12 +438,18 @@ namespace DnsZoneRecordManager.Services
                 && siblings.Any(r => r.Id != selfId && r.Name == name && r.Type == RecordType.CNAME)
             )
             {
-                return "This name already has a CNAME record, which cannot share its name.";
+                return new ServiceError(
+                    ErrorKind.RuleViolation,
+                    "This name already has a CNAME record, which cannot share its name."
+                );
             }
 
             if (selfId == null && siblings.Count >= DnsRules.MaxRecordsPerZone)
             {
-                return "A zone cannot hold more than 10 records.";
+                return new ServiceError(
+                    ErrorKind.RuleViolation,
+                    "A zone cannot hold more than 10 records."
+                );
             }
 
             return null;

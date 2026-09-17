@@ -89,7 +89,7 @@ namespace DnsZoneRecordManager.Controllers
             var result = await _zones.RenameAsync(id, vm.Name);
             if (!result.Success)
             {
-                if (result.Errors.Contains("Zone not found."))
+                if (result.HasError(ErrorKind.NotFound))
                 {
                     return NotFound();
                 }
@@ -145,11 +145,11 @@ namespace DnsZoneRecordManager.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private void AddErrors(IEnumerable<string> errors)
+        private void AddErrors(IEnumerable<ServiceError> errors)
         {
             foreach (var error in errors)
             {
-                ModelState.AddModelError(string.Empty, error);
+                ModelState.AddModelError(string.Empty, error.Message);
             }
         }
     }

@@ -69,9 +69,14 @@ namespace DnsZoneRecordManager.Tests
             var service = Service(uow);
             var zoneId = await SeededZoneAsync(uow);
 
-            (await service.CreateAsync(999, "www", RecordType.A, 300, "10.0.0.1"))
+            var missingZone = await service.CreateAsync(999, "www", RecordType.A, 300, "10.0.0.1");
+            missingZone.Success.Should().BeFalse();
+            missingZone.HasError(ErrorKind.NotFound).Should().BeTrue();
+            missingZone
                 .Errors.Should()
-                .Contain("Zone not found.");
+                .ContainSingle()
+                .Which.Message.Should()
+                .Be("Zone not found.");
             (await service.CreateAsync(zoneId, "www", RecordType.A, 300, "not-an-ip"))
                 .Success.Should()
                 .BeFalse();
@@ -81,11 +86,26 @@ namespace DnsZoneRecordManager.Tests
                 .BeTrue();
             var duplicate = await service.CreateAsync(zoneId, "DUP", RecordType.A, 300, "10.0.0.9");
             duplicate.Success.Should().BeFalse();
-            duplicate.Errors.Should().ContainSingle().Which.Should().Contain("already exists");
-
-            (await service.UpdateAsync(999, "www", RecordType.A, 300, "10.0.0.1"))
+            duplicate.HasError(ErrorKind.Conflict).Should().BeTrue();
+            duplicate
                 .Errors.Should()
-                .Contain("Record not found.");
+                .ContainSingle()
+                .Which.Message.Should()
+                .Contain("already exists");
+
+            var missingRecord = await service.UpdateAsync(
+                999,
+                "www",
+                RecordType.A,
+                300,
+                "10.0.0.1"
+            );
+            missingRecord.HasError(ErrorKind.NotFound).Should().BeTrue();
+            missingRecord
+                .Errors.Should()
+                .ContainSingle()
+                .Which.Message.Should()
+                .Be("Record not found.");
             (await service.UpdateAsync(zoneId, "www", RecordType.A, 0, "10.0.0.1"))
                 .Success.Should()
                 .BeFalse();
@@ -108,7 +128,8 @@ namespace DnsZoneRecordManager.Tests
                 300,
                 "target.example.com."
             );
-            cnameClash.Errors.Should().ContainSingle().Which.Should().Contain("CNAME");
+            cnameClash.HasError(ErrorKind.RuleViolation).Should().BeTrue();
+            cnameClash.Errors.Should().ContainSingle().Which.Message.Should().Contain("CNAME");
 
             var target = (
                 await service.CreateAsync(
@@ -126,7 +147,8 @@ namespace DnsZoneRecordManager.Tests
                 300,
                 "10.0.0.6"
             );
-            hostClash.Errors.Should().ContainSingle().Which.Should().Contain("CNAME");
+            hostClash.HasError(ErrorKind.RuleViolation).Should().BeTrue();
+            hostClash.Errors.Should().ContainSingle().Which.Message.Should().Contain("CNAME");
 
             var updateClash = await service.UpdateAsync(
                 host.Id,
@@ -135,7 +157,8 @@ namespace DnsZoneRecordManager.Tests
                 300,
                 "10.0.0.7"
             );
-            updateClash.Errors.Should().ContainSingle().Which.Should().Contain("CNAME");
+            updateClash.HasError(ErrorKind.RuleViolation).Should().BeTrue();
+            updateClash.Errors.Should().ContainSingle().Which.Message.Should().Contain("CNAME");
 
             var selfKeep = await service.UpdateAsync(
                 target.Id,
@@ -168,7 +191,8 @@ namespace DnsZoneRecordManager.Tests
                 "10.9.9.9"
             );
             over.Success.Should().BeFalse();
-            over.Errors.Should().ContainSingle().Which.Should().Contain("10 records");
+            over.HasError(ErrorKind.RuleViolation).Should().BeTrue();
+            over.Errors.Should().ContainSingle().Which.Message.Should().Contain("10 records");
 
             var existing = (await service.ListAsync(zoneId, "h1", null)).Data!.Records.Single();
             var selfUpdate = await service.UpdateAsync(
@@ -193,7 +217,8 @@ namespace DnsZoneRecordManager.Tests
 
             var blocked = await service.DeleteAsync(victim.Id);
             blocked.Success.Should().BeFalse();
-            blocked.Errors.Should().ContainSingle().Which.Should().Contain("4 NS");
+            blocked.HasError(ErrorKind.RuleViolation).Should().BeTrue();
+            blocked.Errors.Should().ContainSingle().Which.Message.Should().Contain("4 NS");
 
             var convertBlocked = await service.UpdateAsync(
                 victim.Id,
@@ -245,7 +270,10 @@ namespace DnsZoneRecordManager.Tests
             zoned.Data.RecordCount.Should().Be(5);
             zoned.Data.NsCount.Should().Be(4);
 
-            (await service.ListAsync(999, null, null)).Errors.Should().Contain("Zone not found.");
+            (await service.ListAsync(999, null, null))
+                .HasError(ErrorKind.NotFound)
+                .Should()
+                .BeTrue();
             (await service.ListAsync(null, "@", null))
                 .Data!.Records.Should()
                 .OnlyContain(r => r.Name == "@");
@@ -275,8 +303,9 @@ namespace DnsZoneRecordManager.Tests
             csv.Data.Should().Contain("\"say \"\"hi\"\"\"");
 
             (await service.ExportCsvAsync(999, null, null))
-                .Errors.Should()
-                .Contain("Zone not found.");
+                .HasError(ErrorKind.NotFound)
+                .Should()
+                .BeTrue();
         }
     }
 }

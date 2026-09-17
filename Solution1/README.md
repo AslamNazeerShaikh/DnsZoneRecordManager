@@ -53,3 +53,16 @@ Accepted trade-offs: duplicate-race window (pre-checked + unique index; concurre
 - **Factory Method**: `ServiceResult<T>.Ok/Fail` — single construction path for outcomes.
 - **Repository + Unit of Work**: `IGenericRepository<T>` over EF Core, one shared context per request.
 - MVC itself (controllers/views), DI container as factory, Razor layout as Template Method for pages.
+
+## Error catalog (Result pattern — documented exceptions and errors)
+
+Services never throw for domain failures; every failure is a typed `ServiceError` (`ErrorKind` + guided message). Controllers branch on `HasError(kind)` — never on message text — so endpoint behavior is deterministic and no internals leak.
+
+| `ErrorKind` | Meaning | Example messages | Endpoint mapping |
+|---|---|---|---|
+| `Validation` | Shape rule breached (FluentValidation) | "TTL must be a positive number of seconds." | Re-render form with inline errors |
+| `NotFound` | Zone/record id unknown | "Zone not found." / "Record not found." | 404 |
+| `Conflict` | Duplicate zone/record (A6) | "Zone 'x' already exists." / "This exact record already exists in the zone." | Re-render form with message |
+| `RuleViolation` | A1/A2/CNAME rule breached | "A zone must keep at least 4 NS records." / "A zone cannot hold more than 10 records." / CNAME messages | Re-render form (or danger toast on confirmed delete) |
+
+Unexpected exceptions (out-of-memory, I/O, duplicate-race `DbUpdateException`) propagate to the production exception handler → generic error page, details in server logs only.

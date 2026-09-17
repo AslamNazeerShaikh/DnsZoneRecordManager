@@ -8,7 +8,7 @@
   "6": "http",
   "7": "http",
   "8": "HomeController",
-  "9": "DnsRecord",
+  "9": "RecordType",
   "10": "ServiceResult",
   "11": ".New",
   "12": "Task",
@@ -64,9 +64,9 @@
   "62": "testing-strategy.md",
   "63": "jquery-validation/LICENSE.md",
   "64": "CLAUDE.md",
-  "65": ".BuildApp",
+  "65": "DnsRecord",
   "66": "IGenericRepository",
-  "67": "ValidatorsTests",
+  "67": "RecordDataValidators.cs",
   "68": "RecordDeleteViewModel",
   "69": "Solution1 — DNS Manager (ASP.NET Core MVC)",
   "70": "Records/Create.cshtml",
@@ -74,5 +74,6 @@
   "72": "RecordIndexViewModel",
   "73": "Zones/Create.cshtml",
   "74": "Zones/Delete.cshtml",
-  "75": "Zones/Index.cshtml"
+  "75": "Zones/Index.cshtml",
+  "76": "WeatherForecast"
 }

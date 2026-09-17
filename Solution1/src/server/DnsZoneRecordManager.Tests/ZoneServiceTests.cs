@@ -55,7 +55,13 @@ namespace DnsZoneRecordManager.Tests
             (await service.CreateAsync("dup.example")).Success.Should().BeTrue();
             var duplicate = await service.CreateAsync("DUP.example.");
             duplicate.Success.Should().BeFalse();
-            duplicate.Errors.Should().ContainSingle().Which.Should().Contain("already exists");
+            duplicate.HasError(ErrorKind.Conflict).Should().BeTrue();
+            duplicate.HasError(ErrorKind.NotFound).Should().BeFalse();
+            duplicate
+                .Errors.Should()
+                .ContainSingle()
+                .Which.Message.Should()
+                .Contain("already exists");
         }
 
         [Fact]
@@ -75,7 +81,10 @@ namespace DnsZoneRecordManager.Tests
             var service = Service(TestUow.New());
             var created = (await service.CreateAsync("old.example")).Data!;
 
-            (await service.GetAsync(999)).Success.Should().BeFalse();
+            var missing = await service.GetAsync(999);
+            missing.Success.Should().BeFalse();
+            missing.HasError(ErrorKind.NotFound).Should().BeTrue();
+            missing.Errors.Should().ContainSingle().Which.Message.Should().Be("Zone not found.");
             (await service.GetAsync(created.Id)).Data!.Name.Should().Be("old.example");
 
             (await service.RenameAsync(999, "new.example")).Success.Should().BeFalse();
@@ -83,7 +92,8 @@ namespace DnsZoneRecordManager.Tests
             await service.CreateAsync("taken.example");
             var clash = await service.RenameAsync(created.Id, "TAKEN.example");
             clash.Success.Should().BeFalse();
-            clash.Errors.Should().ContainSingle().Which.Should().Contain("already exists");
+            clash.HasError(ErrorKind.Conflict).Should().BeTrue();
+            clash.Errors.Should().ContainSingle().Which.Message.Should().Contain("already exists");
 
             var renamed = await service.RenameAsync(created.Id, "New.EXAMPLE.");
             renamed.Success.Should().BeTrue();

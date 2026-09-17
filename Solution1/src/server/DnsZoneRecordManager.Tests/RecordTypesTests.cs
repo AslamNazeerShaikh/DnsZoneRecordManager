@@ -8,6 +8,22 @@ namespace DnsZoneRecordManager.Tests
     public class RecordTypesTests
     {
         [Fact]
+        public void should_compare_service_errors_by_value()
+        {
+            var a = new ServiceError(ErrorKind.Conflict, "dup");
+            var b = new ServiceError(ErrorKind.Conflict, "dup");
+
+            (a == b).Should().BeTrue();
+            (a != new ServiceError(ErrorKind.NotFound, "missing")).Should().BeTrue();
+            a.GetHashCode().Should().Be(b.GetHashCode());
+            a.ToString().Should().Contain("Conflict");
+            var (kind, message) = a;
+            kind.Should().Be(ErrorKind.Conflict);
+            message.Should().Be("dup");
+            a.Should().Be(b with { Message = "dup" });
+        }
+
+        [Fact]
         public void should_compare_zone_list_items_by_value()
         {
             var now = DateTime.UtcNow;

@@ -48,9 +48,9 @@
     "semantic_hash": ""
   },
   "Solution1/src/server/DnsZoneRecordManager/Program.cs": {
-    "mtime": 1789667038.1592953,
-    "seen": 1789667055.297441,
-    "ast_hash": "641522edc3dbbb7417ed336769374bde",
+    "mtime": 1789668677.8835893,
+    "seen": 1789668772.820344,
+    "ast_hash": "514eef3907e91fd15b240b65db16a252",
     "semantic_hash": ""
   },
   "Solution1/src/server/DnsZoneRecordManager/Properties/launchSettings.json": {
@@ -510,15 +510,15 @@
     "semantic_hash": ""
   },
   "Solution1/src/server/DnsZoneRecordManager.Tests/IntegrationTests.cs": {
-    "mtime": 1789667038.1689417,
-    "seen": 1789667055.297434,
-    "ast_hash": "49f440c31b7f6b27ff509628d2f0d596",
+    "mtime": 1789668754.4672973,
+    "seen": 1789668772.820336,
+    "ast_hash": "6a138281ef1a8d4e5cd66d81c070868e",
     "semantic_hash": ""
   },
   "Solution1/src/server/DnsZoneRecordManager.Tests/RecordServiceTests.cs": {
-    "mtime": 1789667038.163311,
-    "seen": 1789667055.2974348,
-    "ast_hash": "446ca3c72bed67725a592199d61e3242",
+    "mtime": 1789668754.4638078,
+    "seen": 1789668772.820336,
+    "ast_hash": "861b929dd2cfa21d8bd2252a9e2bdf00",
     "semantic_hash": ""
   },
   "Solution1/src/server/DnsZoneRecordManager.Tests/RecordTypesTests.cs": {
@@ -528,15 +528,15 @@
     "semantic_hash": ""
   },
   "Solution1/src/server/DnsZoneRecordManager.Tests/ValidatorsTests.cs": {
-    "mtime": 1789667038.1613245,
-    "seen": 1789667055.297436,
-    "ast_hash": "ee8329ea212261ed5eaf8c2e0d627b6d",
+    "mtime": 1789668583.5021272,
+    "seen": 1789668772.820338,
+    "ast_hash": "552fe9acd58e9c9bff11b55066bd7732",
     "semantic_hash": ""
   },
   "Solution1/src/server/DnsZoneRecordManager.Tests/ZoneServiceTests.cs": {
-    "mtime": 1789667038.160325,
-    "seen": 1789667055.297437,
-    "ast_hash": "e403ff59863a86e8786b52d8d0378a71",
+    "mtime": 1789668665.4809513,
+    "seen": 1789668772.820339,
+    "ast_hash": "1a36690a63fecee5fb411642d394f03c",
     "semantic_hash": ""
   },
   "Solution1/src/server/DnsZoneRecordManager/Controllers/RecordsController.cs": {
@@ -588,27 +588,27 @@
     "semantic_hash": ""
   },
   "Solution1/src/server/DnsZoneRecordManager/Services/RecordService.cs": {
-    "mtime": 1789667038.166043,
-    "seen": 1789667055.297441,
-    "ast_hash": "adb76603bae256c8d47401dbdba04a35",
+    "mtime": 1789668754.464623,
+    "seen": 1789668772.8203452,
+    "ast_hash": "c5242bc7b6b56fd4116d78a3d95309e6",
     "semantic_hash": ""
   },
   "Solution1/src/server/DnsZoneRecordManager/Services/ZoneService.cs": {
-    "mtime": 1789667038.1755366,
-    "seen": 1789667055.297442,
-    "ast_hash": "55c819b5a014883df193bae1d34fd154",
+    "mtime": 1789668754.464863,
+    "seen": 1789668772.820346,
+    "ast_hash": "3daec78343ba7f8cbeab6ad058b5e498",
     "semantic_hash": ""
   },
   "Solution1/src/server/DnsZoneRecordManager/Validation/DnsRules.cs": {
-    "mtime": 1789667038.1594992,
-    "seen": 1789667055.297442,
-    "ast_hash": "c448e60eab07d8a6bc0c62990289aaaf",
+    "mtime": 1789668754.4564595,
+    "seen": 1789668772.820346,
+    "ast_hash": "5fe6b2e9c00499368e52b5f78a52f695",
     "semantic_hash": ""
   },
   "Solution1/src/server/DnsZoneRecordManager/Validation/Validators.cs": {
-    "mtime": 1789667038.1659698,
-    "seen": 1789667055.297442,
-    "ast_hash": "30f4a5a57ea258f28086344379973c2d",
+    "mtime": 1789668583.4983706,
+    "seen": 1789668772.8203468,
+    "ast_hash": "eb4534611005ab74874bdf1eaf0c5c58",
     "semantic_hash": ""
   },
   "Solution1/src/server/DnsZoneRecordManager/ViewModels/DnsViewModels.cs": {
@@ -654,9 +654,15 @@
     "semantic_hash": ""
   },
   "Solution1/README.md": {
-    "mtime": 1789666990.553148,
-    "seen": 1789667055.297469,
-    "ast_hash": "c01b24edf41d25e17320a625c34eed22",
+    "mtime": 1789668747.4390283,
+    "seen": 1789668772.8203762,
+    "ast_hash": "7b11900497498dc6bec1f61f4d2d6a97",
+    "semantic_hash": ""
+  },
+  "Solution1/src/server/DnsZoneRecordManager/Validation/RecordDataValidators.cs": {
+    "mtime": 1789668754.4576502,
+    "seen": 1789668772.8203468,
+    "ast_hash": "4bac5f22e3aebda2563228b737101a3a",
     "semantic_hash": ""
   }
 }

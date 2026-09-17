@@ -6,42 +6,6 @@ using Microsoft.Extensions.Logging;
 
 namespace DnsZoneRecordManager.Services
 {
-    /// <summary>Outcome of a service operation: data on success, guided messages on failure (A4/A5).</summary>
-    /// <typeparam name="T">Payload type.</typeparam>
-    public sealed class ServiceResult<T>
-    {
-        private ServiceResult(T? data, List<string> errors)
-        {
-            Data = data;
-            Errors = errors;
-        }
-
-        /// <summary>True when <see cref="Errors"/> is empty.</summary>
-        public bool Success => Errors.Count == 0;
-
-        /// <summary>Payload on success; default on failure.</summary>
-        public T? Data { get; }
-
-        /// <summary>Human-readable failure messages (empty on success).</summary>
-        public List<string> Errors { get; }
-
-        /// <summary>Creates a successful result.</summary>
-        /// <param name="data">Payload.</param>
-        /// <returns>Successful result.</returns>
-        public static ServiceResult<T> Ok(T data)
-        {
-            return new ServiceResult<T>(data, []);
-        }
-
-        /// <summary>Creates a failed result.</summary>
-        /// <param name="errors">Failure messages.</param>
-        /// <returns>Failed result.</returns>
-        public static ServiceResult<T> Fail(IEnumerable<string> errors)
-        {
-            return new ServiceResult<T>(default, new List<string>(errors));
-        }
-    }
-
     /// <summary>One zone row for the list grid (counts make the A1/A2 limits visible before submit).</summary>
     /// <param name="Id">Zone id.</param>
     /// <param name="Name">Zone name.</param>
@@ -68,23 +32,23 @@ namespace DnsZoneRecordManager.Services
 
         /// <summary>Gets one zone with its records.</summary>
         /// <param name="id">Zone id.</param>
-        /// <returns>The zone, or a "not found" failure.</returns>
+        /// <returns>The zone, or a <see cref="ErrorKind.NotFound"/> failure. Never throws for domain failures.</returns>
         Task<ServiceResult<DnsZone>> GetAsync(int id);
 
         /// <summary>Creates a zone (name is normalized then validated).</summary>
         /// <param name="name">Raw zone name.</param>
-        /// <returns>The created zone, or validation/duplicate failures.</returns>
+        /// <returns>The created zone, or <see cref="ErrorKind.Validation"/> / <see cref="ErrorKind.Conflict"/> failures. Never throws for domain failures.</returns>
         Task<ServiceResult<DnsZone>> CreateAsync(string name);
 
         /// <summary>Renames a zone.</summary>
         /// <param name="id">Zone id.</param>
         /// <param name="name">New raw name.</param>
-        /// <returns>The renamed zone, or not-found/validation/duplicate failures.</returns>
+        /// <returns>The renamed zone, or <see cref="ErrorKind.NotFound"/> / <see cref="ErrorKind.Validation"/> / <see cref="ErrorKind.Conflict"/> failures. Never throws for domain failures.</returns>
         Task<ServiceResult<DnsZone>> RenameAsync(int id, string name);
 
         /// <summary>Deletes a zone and cascades its records after confirmation.</summary>
         /// <param name="id">Zone id.</param>
-        /// <returns>The deleted id, or a "not found" failure.</returns>
+        /// <returns>The deleted id, or a <see cref="ErrorKind.NotFound"/> failure. Never throws for domain failures.</returns>
         Task<ServiceResult<int>> DeleteAsync(int id);
     }
 
@@ -144,7 +108,7 @@ namespace DnsZoneRecordManager.Services
             var zones = await _uow.Zones.FindAsync(z => z.Id == id, z => z.Records);
             var zone = zones.FirstOrDefault();
             return zone == null
-                ? ServiceResult<DnsZone>.Fail(["Zone not found."])
+                ? ServiceResult<DnsZone>.Fail(ErrorKind.NotFound, "Zone not found.")
                 : ServiceResult<DnsZone>.Ok(zone);
         }
 
@@ -156,12 +120,18 @@ namespace DnsZoneRecordManager.Services
             var validation = await _validator.ValidateAsync(zone);
             if (!validation.IsValid)
             {
-                return ServiceResult<DnsZone>.Fail(validation.Errors.Select(e => e.ErrorMessage));
+                return ServiceResult<DnsZone>.Fail(
+                    ErrorKind.Validation,
+                    validation.Errors.Select(e => e.ErrorMessage)
+                );
             }
 
             if ((await _uow.Zones.FindAsync(z => z.Name == normalized)).Count > 0)
             {
-                return ServiceResult<DnsZone>.Fail([$"Zone '{normalized}' already exists."]);
+                return ServiceResult<DnsZone>.Fail(
+                    ErrorKind.Conflict,
+                    $"Zone '{normalized}' already exists."
+                );
             }
 
             var now = DateTime.UtcNow;
@@ -179,19 +149,25 @@ namespace DnsZoneRecordManager.Services
             var zone = await _uow.Zones.GetByIdAsync(id);
             if (zone == null)
             {
-                return ServiceResult<DnsZone>.Fail(["Zone not found."]);
+                return ServiceResult<DnsZone>.Fail(ErrorKind.NotFound, "Zone not found.");
             }
 
             var normalized = NormalizeZoneName(name);
             var validation = await _validator.ValidateAsync(new DnsZone { Name = normalized });
             if (!validation.IsValid)
             {
-                return ServiceResult<DnsZone>.Fail(validation.Errors.Select(e => e.ErrorMessage));
+                return ServiceResult<DnsZone>.Fail(
+                    ErrorKind.Validation,
+                    validation.Errors.Select(e => e.ErrorMessage)
+                );
             }
 
             if ((await _uow.Zones.FindAsync(z => z.Name == normalized && z.Id != id)).Count > 0)
             {
-                return ServiceResult<DnsZone>.Fail([$"Zone '{normalized}' already exists."]);
+                return ServiceResult<DnsZone>.Fail(
+                    ErrorKind.Conflict,
+                    $"Zone '{normalized}' already exists."
+                );
             }
 
             zone.Name = normalized;
@@ -208,7 +184,7 @@ namespace DnsZoneRecordManager.Services
             var zone = await _uow.Zones.GetByIdAsync(id);
             if (zone == null)
             {
-                return ServiceResult<int>.Fail(["Zone not found."]);
+                return ServiceResult<int>.Fail(ErrorKind.NotFound, "Zone not found.");
             }
 
             _uow.Zones.Remove(zone);

@@ -516,15 +516,15 @@
     "semantic_hash": ""
   },
   "Solution1/src/server/DnsZoneRecordManager.Tests/RecordServiceTests.cs": {
-    "mtime": 1789668754.4638078,
-    "seen": 1789668772.820336,
-    "ast_hash": "861b929dd2cfa21d8bd2252a9e2bdf00",
+    "mtime": 1789669385.1105692,
+    "seen": 1789669395.6484969,
+    "ast_hash": "db854fd4249282c8eea42a23b37e70ae",
     "semantic_hash": ""
   },
   "Solution1/src/server/DnsZoneRecordManager.Tests/RecordTypesTests.cs": {
-    "mtime": 1789667038.1624348,
-    "seen": 1789667055.2974348,
-    "ast_hash": "adb737ed37c25804061d12cebd714ba5",
+    "mtime": 1789669305.9022229,
+    "seen": 1789669395.6484978,
+    "ast_hash": "ea4d05a288665a828dc7b5192f6b9611",
     "semantic_hash": ""
   },
   "Solution1/src/server/DnsZoneRecordManager.Tests/ValidatorsTests.cs": {
@@ -534,21 +534,21 @@
     "semantic_hash": ""
   },
   "Solution1/src/server/DnsZoneRecordManager.Tests/ZoneServiceTests.cs": {
-    "mtime": 1789668665.4809513,
-    "seen": 1789668772.820339,
-    "ast_hash": "1a36690a63fecee5fb411642d394f03c",
+    "mtime": 1789669385.105377,
+    "seen": 1789669395.648499,
+    "ast_hash": "74f4e7e1f223d5038eb90a1121163c15",
     "semantic_hash": ""
   },
   "Solution1/src/server/DnsZoneRecordManager/Controllers/RecordsController.cs": {
-    "mtime": 1789667038.1757665,
-    "seen": 1789667055.297437,
-    "ast_hash": "c1313ca49e2b236cc1fff49a3964bbc4",
+    "mtime": 1789669204.977277,
+    "seen": 1789669395.6485,
+    "ast_hash": "d61ac00bfbcf7b6d19cbd3d118d2d138",
     "semantic_hash": ""
   },
   "Solution1/src/server/DnsZoneRecordManager/Controllers/ZonesController.cs": {
-    "mtime": 1789667038.1657841,
-    "seen": 1789667055.297438,
-    "ast_hash": "18d96542d5a9a3c2d7e03a8ec6b90efa",
+    "mtime": 1789669162.333885,
+    "seen": 1789669395.648501,
+    "ast_hash": "e1764c4623a7c057fef90222f4716803",
     "semantic_hash": ""
   },
   "Solution1/src/server/DnsZoneRecordManager/Data/AppDbContext.cs": {
@@ -588,15 +588,15 @@
     "semantic_hash": ""
   },
   "Solution1/src/server/DnsZoneRecordManager/Services/RecordService.cs": {
-    "mtime": 1789668754.464623,
-    "seen": 1789668772.8203452,
-    "ast_hash": "c5242bc7b6b56fd4116d78a3d95309e6",
+    "mtime": 1789669385.1117897,
+    "seen": 1789669395.648505,
+    "ast_hash": "8433141b893c5d81f428fd06ac8b2083",
     "semantic_hash": ""
   },
   "Solution1/src/server/DnsZoneRecordManager/Services/ZoneService.cs": {
-    "mtime": 1789668754.464863,
-    "seen": 1789668772.820346,
-    "ast_hash": "3daec78343ba7f8cbeab6ad058b5e498",
+    "mtime": 1789669385.110928,
+    "seen": 1789669395.6485062,
+    "ast_hash": "d060f8026d9b4f6a1e6cf5440f494c70",
     "semantic_hash": ""
   },
   "Solution1/src/server/DnsZoneRecordManager/Validation/DnsRules.cs": {
@@ -654,15 +654,21 @@
     "semantic_hash": ""
   },
   "Solution1/README.md": {
-    "mtime": 1789668747.4390283,
-    "seen": 1789668772.8203762,
-    "ast_hash": "7b11900497498dc6bec1f61f4d2d6a97",
+    "mtime": 1789669378.358898,
+    "seen": 1789669395.648534,
+    "ast_hash": "a0f081f27b370fa43232c2e8236f0e22",
     "semantic_hash": ""
   },
   "Solution1/src/server/DnsZoneRecordManager/Validation/RecordDataValidators.cs": {
     "mtime": 1789668754.4576502,
     "seen": 1789668772.8203468,
     "ast_hash": "4bac5f22e3aebda2563228b737101a3a",
+    "semantic_hash": ""
+  },
+  "Solution1/src/server/DnsZoneRecordManager/Services/ServiceResult.cs": {
+    "mtime": 1789669385.105864,
+    "seen": 1789669395.6485062,
+    "ast_hash": "a6ff2da3d3cde0e92165183595f88ba8",
     "semantic_hash": ""
   }
 }
