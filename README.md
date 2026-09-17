@@ -11,7 +11,7 @@ Two slim, goal-centric solutions cover every stack option the brief allows. Both
 | Backend | ASP.NET Core MVC + JSON API (`Controllers/Api`, Scalar at `/scalar`), .NET 10 | ASP.NET Core Web API, .NET 10 (`src/server/DnsZoneRecordManager`) |
 | Data access | Generic Repository + Unit of Work, In-Memory (brief default) | CQRS **without MediatR** (hand-rolled commands/queries + handlers), EF Core + SQLite |
 | Frontend | Razor + Bootstrap + jQuery (default MVC template) | Next.js 16.3.5 + React 19 + TypeScript 5 + Tailwind CSS 4 (`src/client`) |
-| Status | **Implemented** (CRUD + validation + seed + CSV + 100% coverage, see `Solution1/README.md`) | Empty scaffold (this step) |
+| Status | **Implemented** (CRUD + validation + seed + CSV + JSON API + 100% coverage — [Solution1/README.md](Solution1/README.md)) | Scaffold (template + OpenAPI — [Solution2/README.md](Solution2/README.md)) |
 
 Core domain rules both must enforce (see analysis doc §7): ≥4 NS records per zone, ≤10 records per zone, types A/AAAA/CNAME/NS/TXT only, no duplicate zones/records, guided validation feedback.
 
@@ -19,21 +19,21 @@ Core domain rules both must enforce (see analysis doc §7): ≥4 NS records per 
 
 ```text
 DnsZoneRecordManager/
-  Solution1/DnsZoneRecordManager.slnx + src/server/DnsZoneRecordManager/   # MVC
-  Solution2/DnsZoneRecordManager.slnx + src/server/DnsZoneRecordManager/   # Web API
-                                          src/client/                      # Next.js app
+  Solution1/README.md + DnsZoneRecordManager.slnx + src/server/DnsZoneRecordManager/   # MVC (implemented)
+  Solution2/README.md + DnsZoneRecordManager.slnx + src/server/DnsZoneRecordManager/   # Web API (scaffold)
+                                           src/client/                                 # Next.js app (scaffold)
   docs/REQUIREMENTS_ANALYSIS.md
   .opencode/  AGENTS.md  graphify-out/   # agent + knowledge-graph config (mirrors workspace standard)
 ```
 
-## Run (empty scaffolds)
+## Run
 
 ```bash
-# Solution1 MVC
-dotnet run --project Solution1/src/server/DnsZoneRecordManager
-# Solution2 API
-dotnet run --project Solution2/src/server/DnsZoneRecordManager
-# Solution2 client
+# Solution1 MVC (implemented) — HTTPS profile
+dotnet run --project Solution1/src/server/DnsZoneRecordManager --launch-profile https
+# Solution2 API (scaffold)
+dotnet run --project Solution2/src/server/DnsZoneRecordManager --launch-profile https
+# Solution2 client (scaffold)
 cd Solution2/src/client && npm run dev
 ```
 
@@ -44,5 +44,7 @@ cd Solution2/src/client && npm run dev
 
 ## Docs
 
+- [Solution1/README.md](Solution1/README.md) — implemented MVC app: operations manual, UI/logic paths, JSON API, coverage gate.
+- [Solution2/README.md](Solution2/README.md) — API + client scaffold: planned stack, current state, next steps.
 - `docs/REQUIREMENTS_ANALYSIS.md` — assessment requirements (all files read, all links checked).
 - `docs/TOOLCHAIN_AND_PACKAGES.md` — every package + toolchain versions pinned (SDKs, NuGet, npm, wwwroot libs).
