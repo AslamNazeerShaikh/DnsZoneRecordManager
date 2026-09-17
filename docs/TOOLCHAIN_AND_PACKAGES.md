@@ -60,6 +60,10 @@ Explicit `Program` class with `Main` + block-scoped namespace (no top-level stat
 |---|---|---|
 | FluentValidation | 12.1.1 | Server-authoritative validation (REQUIREMENTS §7 rules) |
 | Microsoft.EntityFrameworkCore.InMemory | 10.0.12 | In-Memory store behind Generic Repository + Unit of Work (brief default) |
+| Microsoft.AspNetCore.OpenApi | 10.0.12 | OpenAPI document (`/openapi/v1.json`, Development) backing the Scalar reference |
+| Scalar.AspNetCore | 2.17.4 | API reference UI (`/scalar`, Development) per https://scalar.com/products/api-references/integrations/aspnetcore/integration |
+
+JSON API: `Controllers/Api` (`[ApiController]`, `api/zones` + `api/records`, enums as strings, `required` members); MVC view actions stay HTML-only and are excluded from the OpenAPI document by design.
 
 ### wwwroot client libs (shipped with the `dotnet new mvc` template, LibMan-style static files)
 

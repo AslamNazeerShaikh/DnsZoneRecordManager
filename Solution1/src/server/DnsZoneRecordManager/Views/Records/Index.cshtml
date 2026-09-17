@@ -16,7 +16,7 @@
         <form method="get" class="row g-2 align-items-end">
             <div class="col-12 col-md-4">
                 <label class="form-label" for="zoneId">Zone</label>
-                <select id="zoneId" name="zoneId" class="form-select dns-autosubmit" asp-items="Model.ZoneOptions">
+                <select asp-for="ZoneId" class="form-select" asp-items="Model.ZoneOptions">
                     <option value="">All zones</option>
                 </select>
             </div>
@@ -26,7 +26,7 @@
             </div>
             <div class="col-6 col-md-2">
                 <label class="form-label" for="type">Type</label>
-                <select id="type" name="type" class="form-select dns-autosubmit" asp-items="Model.TypeOptions">
+                <select asp-for="Type" class="form-select" asp-items="Model.TypeOptions">
                     <option value="">All types</option>
                 </select>
             </div>
@@ -81,6 +81,9 @@ else
                         </tr>
                     }
                 </tbody>
+                <tfoot>
+                    <tr><td colspan="7" class="text-muted">Total: <strong>@Model.Records.Count</strong> records</td></tr>
+                </tfoot>
             </table>
         </div>
     </div>

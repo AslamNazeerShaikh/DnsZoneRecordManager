@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace DnsZoneRecordManager.Controllers
 {
     /// <summary>Zone pages: list/search, create, rename, delete with confirm.</summary>
+    [Route("[controller]")]
     public class ZonesController : Controller
     {
         private readonly IZoneService _zones;
@@ -19,6 +20,8 @@ namespace DnsZoneRecordManager.Controllers
         /// <summary>Zone grid with search.</summary>
         /// <param name="search">Optional name filter.</param>
         /// <returns>Zone list view.</returns>
+        [HttpGet("")]
+        [HttpGet("Index")]
         public async Task<IActionResult> Index(string? search)
         {
             var result = await _zones.ListAsync(search);
@@ -27,6 +30,7 @@ namespace DnsZoneRecordManager.Controllers
 
         /// <summary>Empty create form.</summary>
         /// <returns>Create view.</returns>
+        [HttpGet("Create")]
         public IActionResult Create()
         {
             return View(new ZoneFormViewModel());
@@ -35,7 +39,7 @@ namespace DnsZoneRecordManager.Controllers
         /// <summary>Creates a zone; re-renders with guided errors on failure.</summary>
         /// <param name="vm">Posted form.</param>
         /// <returns>Redirect to the grid, or the form with errors.</returns>
-        [HttpPost]
+        [HttpPost("Create")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(ZoneFormViewModel vm)
         {
@@ -59,6 +63,7 @@ namespace DnsZoneRecordManager.Controllers
         /// <summary>Rename form for one zone.</summary>
         /// <param name="id">Zone id.</param>
         /// <returns>Edit view, or 404.</returns>
+        [HttpGet("Edit/{id:int}")]
         public async Task<IActionResult> Edit(int id)
         {
             var result = await _zones.GetAsync(id);
@@ -77,7 +82,7 @@ namespace DnsZoneRecordManager.Controllers
         /// <param name="id">Zone id.</param>
         /// <param name="vm">Posted form.</param>
         /// <returns>Redirect to the grid, the form with errors, or 404.</returns>
-        [HttpPost]
+        [HttpPost("Edit/{id:int}")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, ZoneFormViewModel vm)
         {
@@ -106,6 +111,7 @@ namespace DnsZoneRecordManager.Controllers
         /// <summary>Delete confirmation showing the cascade impact.</summary>
         /// <param name="id">Zone id.</param>
         /// <returns>Delete view, or 404.</returns>
+        [HttpGet("Delete/{id:int}")]
         public async Task<IActionResult> Delete(int id)
         {
             var result = await _zones.GetAsync(id);
@@ -129,7 +135,7 @@ namespace DnsZoneRecordManager.Controllers
         /// <summary>Deletes a zone and its records.</summary>
         /// <param name="id">Zone id.</param>
         /// <returns>Redirect to the grid, or 404.</returns>
-        [HttpPost]
+        [HttpPost("Delete/{id:int}")]
         [ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

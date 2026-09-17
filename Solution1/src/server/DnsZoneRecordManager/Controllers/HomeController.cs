@@ -5,10 +5,13 @@ using Microsoft.AspNetCore.Mvc;
 namespace DnsZoneRecordManager.Controllers;
 
 /// <summary>Landing, privacy, and error pages.</summary>
+[Route("[controller]")]
 public class HomeController : Controller
 {
     /// <summary>CRM-style dashboard landing page.</summary>
     /// <returns>Index view.</returns>
+    [HttpGet("/")]
+    [HttpGet("Index")]
     public IActionResult Index()
     {
         return View();
@@ -16,6 +19,7 @@ public class HomeController : Controller
 
     /// <summary>Privacy page.</summary>
     /// <returns>Privacy view.</returns>
+    [HttpGet("Privacy")]
     public IActionResult Privacy()
     {
         return View();
@@ -23,6 +27,7 @@ public class HomeController : Controller
 
     /// <summary>Error page (no caching).</summary>
     /// <returns>Error view with the request id.</returns>
+    [HttpGet("Error")]
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {

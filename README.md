@@ -8,7 +8,7 @@ Two slim, goal-centric solutions cover every stack option the brief allows. Both
 | | Solution1 | Solution2 |
 |---|---|---|
 | Folder | `Solution1/` | `Solution2/` |
-| Backend | ASP.NET Core MVC, .NET 10 | ASP.NET Core Web API, .NET 10 (`src/server/DnsZoneRecordManager`) |
+| Backend | ASP.NET Core MVC + JSON API (`Controllers/Api`, Scalar at `/scalar`), .NET 10 | ASP.NET Core Web API, .NET 10 (`src/server/DnsZoneRecordManager`) |
 | Data access | Generic Repository + Unit of Work, In-Memory (brief default) | CQRS **without MediatR** (hand-rolled commands/queries + handlers), EF Core + SQLite |
 | Frontend | Razor + Bootstrap + jQuery (default MVC template) | Next.js 16.3.5 + React 19 + TypeScript 5 + Tailwind CSS 4 (`src/client`) |
 | Status | **Implemented** (CRUD + validation + seed + CSV + 100% coverage, see `Solution1/README.md`) | Empty scaffold (this step) |

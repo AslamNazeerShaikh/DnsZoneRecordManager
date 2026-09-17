@@ -96,5 +96,95 @@ namespace DnsZoneRecordManager.Tests
             count.Should().Be(5);
             ns.Should().Be(4);
         }
+
+        [Fact]
+        public void should_compare_api_dtos_by_value()
+        {
+            var now = DateTime.UtcNow;
+            var zone = new Controllers.Api.ZoneDto(1, "svc.example", 5, 4, now, now);
+            var sameZone = new Controllers.Api.ZoneDto(1, "svc.example", 5, 4, now, now);
+            (zone == sameZone).Should().BeTrue();
+            (zone != sameZone with { Name = "other.example" }).Should().BeTrue();
+            zone.GetHashCode().Should().Be(sameZone.GetHashCode());
+            zone.ToString().Should().Contain("svc.example");
+            var (zid, zname, zcount, zns, zcreated, zupdated) = zone;
+            zid.Should().Be(1);
+            zname.Should().Be("svc.example");
+            zcount.Should().Be(5);
+            zns.Should().Be(4);
+            zcreated.Should().Be(now);
+            zupdated.Should().Be(now);
+
+            var record = new Controllers.Api.RecordDto(
+                2,
+                1,
+                "svc.example",
+                "www",
+                "www.svc.example",
+                RecordType.A,
+                300,
+                "10.0.0.1",
+                now
+            );
+            var sameRecord = record with { Ttl = 300 };
+            (record == sameRecord).Should().BeTrue();
+            (record != sameRecord with { Data = "10.0.0.2" }).Should().BeTrue();
+            record.GetHashCode().Should().Be(sameRecord.GetHashCode());
+            record.ToString().Should().Contain("www.svc.example");
+        }
+
+        [Fact]
+        public void should_compare_api_request_dtos_by_value()
+        {
+            var create = new Controllers.Api.CreateRecordRequest
+            {
+                ZoneId = 1,
+                Name = "www",
+                Type = RecordType.A,
+                Ttl = 300,
+                Data = "10.0.0.1",
+            };
+            var same = create with { Ttl = 300 };
+            (create == same).Should().BeTrue();
+            (create != same with { Data = "10.0.0.2" }).Should().BeTrue();
+            create.GetHashCode().Should().Be(same.GetHashCode());
+            create.ToString().Should().Contain("www");
+
+            var zoneRequest = new Controllers.Api.CreateZoneRequest { Name = "svc.example" };
+            (zoneRequest == new Controllers.Api.CreateZoneRequest { Name = "svc.example" })
+                .Should()
+                .BeTrue();
+            (zoneRequest != new Controllers.Api.CreateZoneRequest { Name = "other.example" })
+                .Should()
+                .BeTrue();
+            zoneRequest.ToString().Should().Contain("svc.example");
+
+            var rename = new Controllers.Api.RenameZoneRequest { Name = "svc.example" };
+            (rename == new Controllers.Api.RenameZoneRequest { Name = "svc.example" })
+                .Should()
+                .BeTrue();
+            rename.ToString().Should().Contain("svc.example");
+
+            var update = new Controllers.Api.UpdateRecordRequest
+            {
+                Name = "www",
+                Type = RecordType.A,
+                Ttl = 300,
+                Data = "10.0.0.1",
+            };
+            (
+                update
+                == new Controllers.Api.UpdateRecordRequest
+                {
+                    Name = "www",
+                    Type = RecordType.A,
+                    Ttl = 300,
+                    Data = "10.0.0.1",
+                }
+            ).Should().BeTrue();
+            (update != update with { Ttl = 600 }).Should().BeTrue();
+            update.GetHashCode().Should().Be((update with { Ttl = 300 }).GetHashCode());
+            update.ToString().Should().Contain("www");
+        }
     }
 }

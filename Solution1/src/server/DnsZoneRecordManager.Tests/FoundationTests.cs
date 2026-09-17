@@ -20,15 +20,20 @@ namespace DnsZoneRecordManager.Tests
 
             await DbSeeder.SeedAsync(context);
             context.Zones.Should().ContainSingle(z => z.Name == "nahuexolab.com");
-            context.Records.Should().HaveCount(5);
-            context.Records.Count(r => r.Type == RecordType.NS).Should().Be(4);
+            context.Zones.Should().ContainSingle(z => z.Name == "demo.example");
+            context.Records.Count(r => r.Zone.Name == "nahuexolab.com").Should().Be(5);
+            context
+                .Records.Count(r => r.Zone.Name == "nahuexolab.com" && r.Type == RecordType.NS)
+                .Should()
+                .Be(4);
             context
                 .Records.Should()
                 .ContainSingle(r => r.Name == "_dmarc" && r.Type == RecordType.TXT);
+            context.Records.Select(r => r.Type).Distinct().Should().HaveCount(5);
 
             await DbSeeder.SeedAsync(context);
-            context.Zones.Should().ContainSingle();
-            context.Records.Should().HaveCount(5);
+            context.Zones.Should().HaveCount(2);
+            context.Records.Should().HaveCount(13);
         }
     }
 

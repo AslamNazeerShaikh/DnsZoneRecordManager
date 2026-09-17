@@ -3,10 +3,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DnsZoneRecordManager.Data
 {
-    /// <summary>Seeds the sample zone (nahuexolab.com + 5 records) on first run.</summary>
+    /// <summary>Seeds the sample zones on first run: nahuexolab.com (assessment sample)
+    /// plus demo.example (one record of every allowed type for filtering demos).</summary>
     public static class DbSeeder
     {
-        /// <summary>Inserts the seed zone when the store is empty; otherwise does nothing.</summary>
+        /// <summary>Inserts the seed zones when the store is empty; otherwise does nothing.</summary>
         /// <param name="context">EF Core context to seed.</param>
         /// <returns>A task for the operation.</returns>
         public static async Task SeedAsync(AppDbContext context)
@@ -60,6 +61,82 @@ namespace DnsZoneRecordManager.Data
             );
 
             await context.Zones.AddAsync(zone);
+
+            var demo = new DnsZone
+            {
+                Name = "demo.example",
+                CreatedUtc = now,
+                UpdatedUtc = now,
+            };
+            foreach (
+                var ns in new[]
+                {
+                    "ns1.demo.example.",
+                    "ns2.demo.example.",
+                    "ns3.demo.example.",
+                    "ns4.demo.example.",
+                }
+            )
+            {
+                demo.Records.Add(
+                    new DnsRecord
+                    {
+                        Name = "@",
+                        Type = RecordType.NS,
+                        Ttl = 172800,
+                        Data = ns,
+                        CreatedUtc = now,
+                        UpdatedUtc = now,
+                    }
+                );
+            }
+
+            demo.Records.Add(
+                new DnsRecord
+                {
+                    Name = "www",
+                    Type = RecordType.A,
+                    Ttl = 300,
+                    Data = "192.0.2.1",
+                    CreatedUtc = now,
+                    UpdatedUtc = now,
+                }
+            );
+            demo.Records.Add(
+                new DnsRecord
+                {
+                    Name = "ipv6",
+                    Type = RecordType.AAAA,
+                    Ttl = 300,
+                    Data = "2001:db8::1",
+                    CreatedUtc = now,
+                    UpdatedUtc = now,
+                }
+            );
+            demo.Records.Add(
+                new DnsRecord
+                {
+                    Name = "alias",
+                    Type = RecordType.CNAME,
+                    Ttl = 3600,
+                    Data = "www.demo.example.",
+                    CreatedUtc = now,
+                    UpdatedUtc = now,
+                }
+            );
+            demo.Records.Add(
+                new DnsRecord
+                {
+                    Name = "info",
+                    Type = RecordType.TXT,
+                    Ttl = 3600,
+                    Data = "demo zone for filtering",
+                    CreatedUtc = now,
+                    UpdatedUtc = now,
+                }
+            );
+            await context.Zones.AddAsync(demo);
+
             await context.SaveChangesAsync();
         }
     }

@@ -1,7 +1,16 @@
 /* DnsZoneRecordManager CRM theme: shadcn-style slate cards on Bootstrap 5.3 color modes. */
 
+/* Inter variable font (latin subset, self-hosted from Google Fonts, v20). */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../fonts/inter-latin.woff2") format("woff2");
+}
+
 :root {
-  --dns-font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --dns-font: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --dns-radius: 0.75rem;
   --dns-accent: #4f46e5;
   --dns-chip-bg: #eef2ff;
@@ -88,6 +97,11 @@ body,
   box-shadow: 0 1px 2px rgb(0 0 0 / 0.05);
 }
 
+/* Clip square tables/grids to the card's rounded corners (overflow-x stays auto for mobile scroll). */
+.card > .table-responsive {
+  border-radius: inherit;
+}
+
 .dns-hero {
   background: linear-gradient(135deg, var(--dns-chip-bg), transparent 70%);
   border: 1px solid var(--bs-border-color);
@@ -100,6 +114,7 @@ body,
 
 .dns-form-card {
   max-width: 640px;
+  margin-inline: auto;
 }
 
 .dns-chip {
@@ -139,10 +154,15 @@ body,
 [data-bs-theme="dark"] .dns-type-txt { background-color: #831843; color: #fbcfe8; }
 
 .dns-data {
-  max-width: 280px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  max-width: 340px;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+/* MVC renders an empty alert box for model-level errors even when only
+   field-level errors exist — hide it unless it has content. */
+.validation-summary-valid {
+  display: none !important;
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {

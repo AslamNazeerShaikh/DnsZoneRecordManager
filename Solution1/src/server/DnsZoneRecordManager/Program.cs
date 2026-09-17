@@ -1,10 +1,12 @@
 using System.Diagnostics.CodeAnalysis;
+using System.Text.Json.Serialization;
 using DnsZoneRecordManager.Data;
 using DnsZoneRecordManager.Models;
 using DnsZoneRecordManager.Services;
 using DnsZoneRecordManager.Validation;
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
+using Scalar.AspNetCore;
 
 namespace DnsZoneRecordManager
 {
@@ -28,7 +30,13 @@ namespace DnsZoneRecordManager
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-            builder.Services.AddControllersWithViews();
+            builder
+                .Services.AddControllersWithViews()
+                .AddJsonOptions(options =>
+                {
+                    options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+                });
+            builder.Services.AddOpenApi();
             builder.Services.AddDbContext<AppDbContext>(options =>
                 options.UseInMemoryDatabase("DnsZoneDb")
             );
@@ -52,6 +60,12 @@ namespace DnsZoneRecordManager
                 app.UseHsts();
             }
 
+            if (app.Environment.IsDevelopment())
+            {
+                app.MapOpenApi();
+                app.MapScalarApiReference();
+            }
+
             // Security headers for a browser-rendered app (no CSP: the inline theme script must run before first paint).
             app.Use(
                 async (context, next) =>
@@ -70,11 +84,10 @@ namespace DnsZoneRecordManager
 
             app.MapStaticAssets();
 
-            app.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}"
-                )
-                .WithStaticAssets();
+            // Attribute routes only (controllers carry explicit [Route]/[HttpGet]/[HttpPost]
+            // templates mirroring the old conventional URLs, so ApiExplorer — and therefore
+            // the OpenAPI document behind /scalar — sees every action with its HTTP method).
+            app.MapControllers();
 
             return app;
         }

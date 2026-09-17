@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 namespace DnsZoneRecordManager.Controllers
 {
     /// <summary>Record pages: grid with zone picker/search/filter, create, edit, delete, CSV export.</summary>
+    [Route("[controller]")]
     public class RecordsController : Controller
     {
         private readonly IRecordService _records;
@@ -26,6 +27,8 @@ namespace DnsZoneRecordManager.Controllers
         /// <param name="search">Optional name/data filter.</param>
         /// <param name="type">Optional type filter.</param>
         /// <returns>Grid view, or 404 for an unknown zone.</returns>
+        [HttpGet("")]
+        [HttpGet("Index")]
         public async Task<IActionResult> Index(int? zoneId, string? search, RecordType? type)
         {
             var zones = await _zones.ListAsync(null);
@@ -57,6 +60,7 @@ namespace DnsZoneRecordManager.Controllers
         /// <summary>Empty create form (zone preselected when given).</summary>
         /// <param name="zoneId">Optional owning zone.</param>
         /// <returns>Create view, or 404 for an unknown zone.</returns>
+        [HttpGet("Create")]
         public async Task<IActionResult> Create(int? zoneId)
         {
             var zones = await _zones.ListAsync(null);
@@ -87,7 +91,7 @@ namespace DnsZoneRecordManager.Controllers
         /// <summary>Creates a record; re-renders with guided errors on failure.</summary>
         /// <param name="vm">Posted form.</param>
         /// <returns>Redirect to the grid, the form with errors, or 404 for an unknown zone.</returns>
-        [HttpPost]
+        [HttpPost("Create")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(RecordFormViewModel vm)
         {
@@ -124,6 +128,7 @@ namespace DnsZoneRecordManager.Controllers
         /// <summary>Edit form for one record.</summary>
         /// <param name="id">Record id.</param>
         /// <returns>Edit view, or 404.</returns>
+        [HttpGet("Edit/{id:int}")]
         public async Task<IActionResult> Edit(int id)
         {
             var result = await _records.GetAsync(id);
@@ -152,7 +157,7 @@ namespace DnsZoneRecordManager.Controllers
         /// <param name="id">Record id.</param>
         /// <param name="vm">Posted form.</param>
         /// <returns>Redirect to the grid, the form with errors, or 404.</returns>
-        [HttpPost]
+        [HttpPost("Edit/{id:int}")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, RecordFormViewModel vm)
         {
@@ -187,6 +192,7 @@ namespace DnsZoneRecordManager.Controllers
         /// <summary>Delete confirmation.</summary>
         /// <param name="id">Record id.</param>
         /// <returns>Delete view, or 404.</returns>
+        [HttpGet("Delete/{id:int}")]
         public async Task<IActionResult> Delete(int id)
         {
             var result = await _records.GetAsync(id);
@@ -213,12 +219,11 @@ namespace DnsZoneRecordManager.Controllers
 
         /// <summary>Deletes a record (blocked below the 4-NS floor).</summary>
         /// <param name="id">Record id.</param>
-        /// <param name="zoneId">Return-to zone filter.</param>
-        /// <returns>Redirect to the grid, delete view with the rule message, or 404.</returns>
-        [HttpPost]
+        /// <returns>Redirect to the unfiltered grid, delete view with the rule message, or 404.</returns>
+        [HttpPost("Delete/{id:int}")]
         [ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id, int zoneId)
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var result = await _records.DeleteAsync(id);
             if (!result.Success)
@@ -235,7 +240,7 @@ namespace DnsZoneRecordManager.Controllers
 
             TempData["Toast"] = "Record was deleted.";
             TempData["ToastType"] = "success";
-            return RedirectToAction(nameof(Index), new { zoneId });
+            return RedirectToAction(nameof(Index));
         }
 
         /// <summary>Downloads the filtered grid as records-only CSV.</summary>
@@ -243,6 +248,7 @@ namespace DnsZoneRecordManager.Controllers
         /// <param name="search">Optional name/data filter.</param>
         /// <param name="type">Optional type filter.</param>
         /// <returns>CSV file, or 404 for an unknown zone.</returns>
+        [HttpGet("Export")]
         public async Task<IActionResult> Export(int? zoneId, string? search, RecordType? type)
         {
             var result = await _records.ExportCsvAsync(zoneId, search, type);

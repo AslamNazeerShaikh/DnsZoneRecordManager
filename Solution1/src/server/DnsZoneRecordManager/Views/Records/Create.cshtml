@@ -5,7 +5,7 @@
     var action = editing ? "Edit" : "Create";
 }
 
-<h1 class="h3 mb-3">@ViewData["Title"]</h1>
+<h1 class="h3 mb-3 text-center">@ViewData["Title"]</h1>
 
 <div class="card dns-form-card">
     <div class="card-body">
@@ -56,9 +56,25 @@
             </div>
             <div class="d-flex gap-2">
                 <button type="submit" class="btn btn-primary">Save</button>
-                <a class="btn btn-outline-secondary" asp-action="Index" asp-route-zoneId="@Model.ZoneId">Cancel</a>
+                <a class="btn btn-outline-secondary" asp-action="Index" asp-route-zoneId="@(Model.ZoneId > 0 ? Model.ZoneId : null)">Cancel</a>
             </div>
         </form>
+    </div>
+</div>
+
+<div class="card dns-form-card mt-3">
+    <div class="card-body">
+        <h2 class="h6">Allowed values</h2>
+        <ul class="mb-0 small text-muted">
+            <li><strong>Name</strong>: <code>@@</code> for the zone apex, or letters, digits, hyphens, dots (leading <code>_</code> allowed, e.g. <code>_dmarc</code>); max 63 characters.</li>
+            <li><strong>A</strong>: IPv4 address, e.g. <code>10.0.0.1</code>.</li>
+            <li><strong>AAAA</strong>: IPv6 address, e.g. <code>2001:db8::1</code>.</li>
+            <li><strong>CNAME</strong>: hostname, e.g. <code>alias.example.com.</code> — a CNAME name cannot hold any other record.</li>
+            <li><strong>NS</strong>: hostname, e.g. <code>ns1.example.com.</code> — every zone keeps at least 4 NS records.</li>
+            <li><strong>TXT</strong>: any text up to 1000 characters.</li>
+            <li><strong>TTL</strong>: positive whole seconds (common values 300–172800).</li>
+            <li>Zones hold at most 10 records; names and zones are lowercase; exact duplicates are rejected.</li>
+        </ul>
     </div>
 </div>
 

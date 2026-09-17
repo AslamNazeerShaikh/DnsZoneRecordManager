@@ -141,6 +141,7 @@ namespace DnsZoneRecordManager.Tests
         {
             var html = await Html(await Client().GetAsync("/Zones"));
             html.Should().Contain("nahuexolab.com").And.Contain("/ 10");
+            html.Should().Contain("Total:").And.Contain("zones");
 
             var empty = await Html(await Client().GetAsync("/Zones?search=zzz-no-match"));
             empty.Should().Contain("No zones found");
@@ -304,6 +305,7 @@ namespace DnsZoneRecordManager.Tests
             var client = Client();
             var html = await Html(await client.GetAsync("/Records"));
             html.Should().Contain("_dmarc.nahuexolab.com").And.Contain("Export CSV");
+            html.Should().Contain("Total:").And.Contain("records");
 
             var zoneId = ZoneId("nahuexolab.com");
             var zoned = await Html(await client.GetAsync($"/Records?zoneId={zoneId}"));
@@ -574,6 +576,7 @@ namespace DnsZoneRecordManager.Tests
                 )
             );
             done.Should().Contain("was deleted.");
+            done.Should().Contain("demo.example");
 
             var nsId = RecordId(zoneId, "@", "NS");
             var blocked = await Html(

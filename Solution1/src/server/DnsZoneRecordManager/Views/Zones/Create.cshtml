@@ -5,7 +5,7 @@
     var action = editing ? "Edit" : "Create";
 }
 
-<h1 class="h3 mb-3">@ViewData["Title"]</h1>
+<h1 class="h3 mb-3 text-center">@ViewData["Title"]</h1>
 
 <div class="card dns-form-card">
     <div class="card-body">
@@ -26,6 +26,20 @@
                 <a class="btn btn-outline-secondary" asp-action="Index">Cancel</a>
             </div>
         </form>
+    </div>
+</div>
+
+<div class="card dns-form-card mt-3">
+    <div class="card-body">
+        <h2 class="h6">Allowed values</h2>
+        <ul class="mb-0 small text-muted">
+            <li><strong>Characters</strong>: letters (a–z), digits (0–9), hyphens (<code>-</code>) and dots (<code>.</code>); e.g. <code>nahuexolab.com</code>.</li>
+            <li><strong>Not allowed</strong>: leading or trailing hyphen/dot, spaces, underscores, or any other symbols.</li>
+            <li><strong>Length</strong>: 253 characters max total; each dot-separated label max 63 characters.</li>
+            <li><strong>Normalization</strong>: upper case is lowercased and a trailing dot is dropped automatically.</li>
+            <li><strong>Uniqueness</strong>: zone names must be unique (case-insensitive).</li>
+            <li><strong>Limits</strong>: every zone keeps at least 4 NS records and holds at most 10 records total.</li>
+        </ul>
     </div>
 </div>
 

@@ -36,9 +36,5 @@
         $(".toast").each(function (_, el) {
             bootstrap.Toast.getOrCreateInstance(el, { delay: 4000 }).show();
         });
-
-        $(".dns-autosubmit").on("change", function () {
-            $(this).closest("form").trigger("submit");
-        });
     });
 })();
