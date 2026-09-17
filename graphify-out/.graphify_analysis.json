@@ -1,0 +1,465 @@
+{
+  "communities": {
+    "0": [
+      "nuget_microsoft_aspnetcore_openapi",
+      "solution1_dnszonerecordmanager",
+      "solution1_src_server_dnszonerecordmanager_dnszonerecordmanager",
+      "solution1_src_server_dnszonerecordmanager_dnszonerecordmanager_csproj_framework_net10_0",
+      "solution1_src_server_dnszonerecordmanager_dnszonerecordmanager_csproj_nuget_fluentvalidation",
+      "solution1_src_server_dnszonerecordmanager_dnszonerecordmanager_csproj_sdk_microsoft_net_sdk_web",
+      "solution1_src_server_dnszonerecordmanager_tests_dnszonerecordmanager_tests",
+      "solution1_src_server_dnszonerecordmanager_tests_dnszonerecordmanager_tests_csproj_nuget_bogus",
+      "solution1_src_server_dnszonerecordmanager_tests_dnszonerecordmanager_tests_csproj_nuget_coverlet_collector",
+      "solution1_src_server_dnszonerecordmanager_tests_dnszonerecordmanager_tests_csproj_nuget_fluentassertions",
+      "solution1_src_server_dnszonerecordmanager_tests_dnszonerecordmanager_tests_csproj_nuget_fluentvalidation",
+      "solution1_src_server_dnszonerecordmanager_tests_dnszonerecordmanager_tests_csproj_nuget_microsoft_net_test_sdk",
+      "solution1_src_server_dnszonerecordmanager_tests_dnszonerecordmanager_tests_csproj_nuget_moq",
+      "solution1_src_server_dnszonerecordmanager_tests_dnszonerecordmanager_tests_csproj_nuget_xunit",
+      "solution1_src_server_dnszonerecordmanager_tests_dnszonerecordmanager_tests_csproj_nuget_xunit_runner_visualstudio",
+      "solution1_src_server_dnszonerecordmanager_tests_dnszonerecordmanager_tests_csproj_sdk_microsoft_net_sdk",
+      "solution2_dnszonerecordmanager",
+      "solution2_src_server_dnszonerecordmanager_dnszonerecordmanager",
+      "solution2_src_server_dnszonerecordmanager_dnszonerecordmanager_csproj_nuget_fluentvalidation",
+      "solution2_src_server_dnszonerecordmanager_tests_dnszonerecordmanager_tests",
+      "solution2_src_server_dnszonerecordmanager_tests_dnszonerecordmanager_tests_csproj_nuget_bogus",
+      "solution2_src_server_dnszonerecordmanager_tests_dnszonerecordmanager_tests_csproj_nuget_coverlet_collector",
+      "solution2_src_server_dnszonerecordmanager_tests_dnszonerecordmanager_tests_csproj_nuget_fluentassertions",
+      "solution2_src_server_dnszonerecordmanager_tests_dnszonerecordmanager_tests_csproj_nuget_fluentvalidation",
+      "solution2_src_server_dnszonerecordmanager_tests_dnszonerecordmanager_tests_csproj_nuget_microsoft_net_test_sdk",
+      "solution2_src_server_dnszonerecordmanager_tests_dnszonerecordmanager_tests_csproj_nuget_moq",
+      "solution2_src_server_dnszonerecordmanager_tests_dnszonerecordmanager_tests_csproj_nuget_xunit",
+      "solution2_src_server_dnszonerecordmanager_tests_dnszonerecordmanager_tests_csproj_nuget_xunit_runner_visualstudio"
+    ],
+    "1": [
+      "opencode_opencode",
+      "opencode_opencode_agents",
+      "opencode_opencode_agents_default",
+      "opencode_opencode_agents_list",
+      "opencode_opencode_commands",
+      "opencode_opencode_commands_custom",
+      "opencode_opencode_instructions",
+      "opencode_opencode_lsp",
+      "opencode_opencode_model",
+      "opencode_opencode_models_muse_spark_1_3_contributor_free",
+      "opencode_opencode_muse_spark_1_3_contributor_free_options",
+      "opencode_opencode_opencode_models",
+      "opencode_opencode_options_reasoningeffort",
+      "opencode_opencode_plugin",
+      "opencode_opencode_project",
+      "opencode_opencode_project_description",
+      "opencode_opencode_project_name",
+      "opencode_opencode_project_type",
+      "opencode_opencode_provider",
+      "opencode_opencode_provider_opencode",
+      "opencode_opencode_schema",
+      "opencode_opencode_skills",
+      "opencode_opencode_skills_enabled",
+      "opencode_opencode_small_model",
+      "opencode_opencode_version"
+    ],
+    "2": [
+      "ref_eslint",
+      "ref_eslint_config_next",
+      "ref_react",
+      "ref_react_dom",
+      "ref_tailwindcss",
+      "ref_tailwindcss_postcss",
+      "ref_types_node",
+      "ref_types_react",
+      "ref_types_react_dom",
+      "ref_typescript",
+      "solution2_src_client_package",
+      "solution2_src_client_package_dependencies",
+      "solution2_src_client_package_dependencies_next",
+      "solution2_src_client_package_dependencies_react",
+      "solution2_src_client_package_dependencies_react_dom",
+      "solution2_src_client_package_name",
+      "solution2_src_client_package_private",
+      "solution2_src_client_package_scripts",
+      "solution2_src_client_package_scripts_build",
+      "solution2_src_client_package_scripts_dev",
+      "solution2_src_client_package_scripts_lint",
+      "solution2_src_client_package_scripts_start",
+      "solution2_src_client_package_version"
+    ],
+    "3": [
+      "abstractvalidator",
+      "csharp_namespace:9f5509818fa3aef3",
+      "solution1_src_server_dnszonerecordmanager_tests_unittest1",
+      "solution1_src_server_dnszonerecordmanager_tests_unittest1_cs_fact",
+      "solution1_src_server_dnszonerecordmanager_tests_unittest1_dnszonerecordmanager_tests_izonelookup",
+      "solution1_src_server_dnszonerecordmanager_tests_unittest1_dnszonerecordmanager_tests_izonelookup_exists",
+      "solution1_src_server_dnszonerecordmanager_tests_unittest1_dnszonerecordmanager_tests_toolchainsmoketests",
+      "solution1_src_server_dnszonerecordmanager_tests_unittest1_dnszonerecordmanager_tests_toolchainsmoketests_bogus_generates_zone_names",
+      "solution1_src_server_dnszonerecordmanager_tests_unittest1_dnszonerecordmanager_tests_toolchainsmoketests_fluentvalidation_rejects_empty_zone_name",
+      "solution1_src_server_dnszonerecordmanager_tests_unittest1_dnszonerecordmanager_tests_toolchainsmoketests_moq_stubs_zone_lookup",
+      "solution1_src_server_dnszonerecordmanager_tests_unittest1_dnszonerecordmanager_tests_zoneinput",
+      "solution1_src_server_dnszonerecordmanager_tests_unittest1_dnszonerecordmanager_tests_zoneinputvalidator",
+      "solution2_src_server_dnszonerecordmanager_tests_unittest1",
+      "solution2_src_server_dnszonerecordmanager_tests_unittest1_cs_fact",
+      "solution2_src_server_dnszonerecordmanager_tests_unittest1_dnszonerecordmanager_tests_izonelookup",
+      "solution2_src_server_dnszonerecordmanager_tests_unittest1_dnszonerecordmanager_tests_izonelookup_exists",
+      "solution2_src_server_dnszonerecordmanager_tests_unittest1_dnszonerecordmanager_tests_toolchainsmoketests",
+      "solution2_src_server_dnszonerecordmanager_tests_unittest1_dnszonerecordmanager_tests_toolchainsmoketests_bogus_generates_zone_names",
+      "solution2_src_server_dnszonerecordmanager_tests_unittest1_dnszonerecordmanager_tests_toolchainsmoketests_fluentvalidation_rejects_empty_zone_name",
+      "solution2_src_server_dnszonerecordmanager_tests_unittest1_dnszonerecordmanager_tests_toolchainsmoketests_moq_stubs_zone_lookup",
+      "solution2_src_server_dnszonerecordmanager_tests_unittest1_dnszonerecordmanager_tests_zoneinput",
+      "solution2_src_server_dnszonerecordmanager_tests_unittest1_dnszonerecordmanager_tests_zoneinputvalidator"
+    ],
+    "4": [
+      "controllerbase",
+      "csharp_namespace:f1dd73015d7ceb0a",
+      "dateonly",
+      "httpget",
+      "ienumerable",
+      "solution1_src_server_dnszonerecordmanager_program",
+      "solution1_src_server_dnszonerecordmanager_program_dnszonerecordmanager_program",
+      "solution1_src_server_dnszonerecordmanager_program_dnszonerecordmanager_program_main",
+      "solution2_src_server_dnszonerecordmanager_controllers_weatherforecastcontroller",
+      "solution2_src_server_dnszonerecordmanager_controllers_weatherforecastcontroller_dnszonerecordmanager_controllers_weatherforecastcontroller",
+      "solution2_src_server_dnszonerecordmanager_controllers_weatherforecastcontroller_dnszonerecordmanager_controllers_weatherforecastcontroller_get",
+      "solution2_src_server_dnszonerecordmanager_program",
+      "solution2_src_server_dnszonerecordmanager_program_dnszonerecordmanager_program",
+      "solution2_src_server_dnszonerecordmanager_program_dnszonerecordmanager_program_main",
+      "solution2_src_server_dnszonerecordmanager_weatherforecast",
+      "solution2_src_server_dnszonerecordmanager_weatherforecast_dnszonerecordmanager_weatherforecast",
+      "solution2_src_server_dnszonerecordmanager_weatherforecast_dnszonerecordmanager_weatherforecast_date",
+      "solution2_src_server_dnszonerecordmanager_weatherforecast_dnszonerecordmanager_weatherforecast_summary",
+      "solution2_src_server_dnszonerecordmanager_weatherforecast_dnszonerecordmanager_weatherforecast_temperaturec",
+      "solution2_src_server_dnszonerecordmanager_weatherforecast_dnszonerecordmanager_weatherforecast_temperaturef",
+      "weatherforecast"
+    ],
+    "5": [
+      "solution2_src_client_tsconfig",
+      "solution2_src_client_tsconfig_compileroptions",
+      "solution2_src_client_tsconfig_compileroptions_allowjs",
+      "solution2_src_client_tsconfig_compileroptions_esmoduleinterop",
+      "solution2_src_client_tsconfig_compileroptions_incremental",
+      "solution2_src_client_tsconfig_compileroptions_isolatedmodules",
+      "solution2_src_client_tsconfig_compileroptions_jsx",
+      "solution2_src_client_tsconfig_compileroptions_lib",
+      "solution2_src_client_tsconfig_compileroptions_module",
+      "solution2_src_client_tsconfig_compileroptions_moduleresolution",
+      "solution2_src_client_tsconfig_compileroptions_noemit",
+      "solution2_src_client_tsconfig_compileroptions_paths",
+      "solution2_src_client_tsconfig_compileroptions_plugins",
+      "solution2_src_client_tsconfig_compileroptions_resolvejsonmodule",
+      "solution2_src_client_tsconfig_compileroptions_skiplibcheck",
+      "solution2_src_client_tsconfig_compileroptions_strict",
+      "solution2_src_client_tsconfig_compileroptions_target",
+      "solution2_src_client_tsconfig_exclude",
+      "solution2_src_client_tsconfig_include"
+    ],
+    "6": [
+      "solution1_src_server_dnszonerecordmanager_properties_launchsettings",
+      "solution1_src_server_dnszonerecordmanager_properties_launchsettings_environmentvariables_aspnetcore_environment",
+      "solution1_src_server_dnszonerecordmanager_properties_launchsettings_http_applicationurl",
+      "solution1_src_server_dnszonerecordmanager_properties_launchsettings_http_commandname",
+      "solution1_src_server_dnszonerecordmanager_properties_launchsettings_http_dotnetrunmessages",
+      "solution1_src_server_dnszonerecordmanager_properties_launchsettings_http_environmentvariables",
+      "solution1_src_server_dnszonerecordmanager_properties_launchsettings_http_launchbrowser",
+      "solution1_src_server_dnszonerecordmanager_properties_launchsettings_https_applicationurl",
+      "solution1_src_server_dnszonerecordmanager_properties_launchsettings_https_commandname",
+      "solution1_src_server_dnszonerecordmanager_properties_launchsettings_https_dotnetrunmessages",
+      "solution1_src_server_dnszonerecordmanager_properties_launchsettings_https_environmentvariables",
+      "solution1_src_server_dnszonerecordmanager_properties_launchsettings_https_launchbrowser",
+      "solution1_src_server_dnszonerecordmanager_properties_launchsettings_profiles",
+      "solution1_src_server_dnszonerecordmanager_properties_launchsettings_profiles_http",
+      "solution1_src_server_dnszonerecordmanager_properties_launchsettings_profiles_https",
+      "solution1_src_server_dnszonerecordmanager_properties_launchsettings_schema"
+    ],
+    "7": [
+      "solution2_src_server_dnszonerecordmanager_properties_launchsettings",
+      "solution2_src_server_dnszonerecordmanager_properties_launchsettings_environmentvariables_aspnetcore_environment",
+      "solution2_src_server_dnszonerecordmanager_properties_launchsettings_http_applicationurl",
+      "solution2_src_server_dnszonerecordmanager_properties_launchsettings_http_commandname",
+      "solution2_src_server_dnszonerecordmanager_properties_launchsettings_http_dotnetrunmessages",
+      "solution2_src_server_dnszonerecordmanager_properties_launchsettings_http_environmentvariables",
+      "solution2_src_server_dnszonerecordmanager_properties_launchsettings_http_launchbrowser",
+      "solution2_src_server_dnszonerecordmanager_properties_launchsettings_https_applicationurl",
+      "solution2_src_server_dnszonerecordmanager_properties_launchsettings_https_commandname",
+      "solution2_src_server_dnszonerecordmanager_properties_launchsettings_https_dotnetrunmessages",
+      "solution2_src_server_dnszonerecordmanager_properties_launchsettings_https_environmentvariables",
+      "solution2_src_server_dnszonerecordmanager_properties_launchsettings_https_launchbrowser",
+      "solution2_src_server_dnszonerecordmanager_properties_launchsettings_profiles",
+      "solution2_src_server_dnszonerecordmanager_properties_launchsettings_profiles_http",
+      "solution2_src_server_dnszonerecordmanager_properties_launchsettings_profiles_https",
+      "solution2_src_server_dnszonerecordmanager_properties_launchsettings_schema"
+    ],
+    "8": [
+      "controller",
+      "csharp_namespace:4b2244da057ded6c",
+      "csharp_namespace:8508b25fbde5befa",
+      "iactionresult",
+      "responsecache",
+      "solution1_src_server_dnszonerecordmanager_controllers_homecontroller",
+      "solution1_src_server_dnszonerecordmanager_controllers_homecontroller_dnszonerecordmanager_controllers_homecontroller",
+      "solution1_src_server_dnszonerecordmanager_controllers_homecontroller_dnszonerecordmanager_controllers_homecontroller_error",
+      "solution1_src_server_dnszonerecordmanager_controllers_homecontroller_dnszonerecordmanager_controllers_homecontroller_index",
+      "solution1_src_server_dnszonerecordmanager_controllers_homecontroller_dnszonerecordmanager_controllers_homecontroller_privacy",
+      "solution1_src_server_dnszonerecordmanager_models_errorviewmodel",
+      "solution1_src_server_dnszonerecordmanager_models_errorviewmodel_dnszonerecordmanager_models_errorviewmodel",
+      "solution1_src_server_dnszonerecordmanager_models_errorviewmodel_dnszonerecordmanager_models_errorviewmodel_requestid",
+      "solution1_src_server_dnszonerecordmanager_models_errorviewmodel_dnszonerecordmanager_models_errorviewmodel_showrequestid",
+      "solution1_src_server_dnszonerecordmanager_views_viewimports"
+    ],
+    "9": [
+      "opencode_opencode_github_enabled",
+      "opencode_opencode_github_headers",
+      "opencode_opencode_github_oauth",
+      "opencode_opencode_github_type",
+      "opencode_opencode_github_url",
+      "opencode_opencode_headers_authorization",
+      "opencode_opencode_mcp",
+      "opencode_opencode_mcp_github",
+      "opencode_opencode_mcp_ui_skills",
+      "opencode_opencode_ui_skills_enabled",
+      "opencode_opencode_ui_skills_type",
+      "opencode_opencode_ui_skills_url"
+    ],
+    "10": [
+      "opencode_opencode_bash_chmod_777",
+      "opencode_opencode_bash_rm_rf",
+      "opencode_opencode_bash_sudo",
+      "opencode_opencode_permission",
+      "opencode_opencode_permission_bash",
+      "opencode_opencode_permission_edit",
+      "opencode_opencode_permission_glob",
+      "opencode_opencode_permission_grep",
+      "opencode_opencode_permission_read",
+      "opencode_opencode_permission_task",
+      "opencode_opencode_permission_write"
+    ],
+    "11": [
+      "solution2_src_client_package_devdependencies",
+      "solution2_src_client_package_devdependencies_eslint",
+      "solution2_src_client_package_devdependencies_eslint_config_next",
+      "solution2_src_client_package_devdependencies_tailwindcss",
+      "solution2_src_client_package_devdependencies_tailwindcss_postcss",
+      "solution2_src_client_package_devdependencies_types_node",
+      "solution2_src_client_package_devdependencies_types_react",
+      "solution2_src_client_package_devdependencies_types_react_dom",
+      "solution2_src_client_package_devdependencies_typescript"
+    ],
+    "12": [
+      "ref_next",
+      "solution2_src_client_next_config",
+      "solution2_src_client_next_config_nextconfig",
+      "solution2_src_client_src_app_layout",
+      "solution2_src_client_src_app_layout_geistmono",
+      "solution2_src_client_src_app_layout_geistsans",
+      "solution2_src_client_src_app_layout_metadata",
+      "solution2_src_client_src_app_layout_rootlayout"
+    ],
+    "13": [
+      "opencode_plugins_graphify",
+      "opencode_plugins_graphify_graphifyplugin",
+      "opencode_plugins_graphify_rationale_4"
+    ],
+    "14": [
+      "solution2_src_client_eslint_config",
+      "solution2_src_client_eslint_config_eslintconfig"
+    ],
+    "15": [
+      "solution2_src_client_postcss_config",
+      "solution2_src_client_postcss_config_config"
+    ],
+    "16": [
+      "solution2_src_client_src_app_page",
+      "solution2_src_client_src_app_page_home"
+    ],
+    "17": [
+      "solution1_src_server_dnszonerecordmanager_views_home_index"
+    ],
+    "18": [
+      "solution1_src_server_dnszonerecordmanager_views_home_privacy"
+    ],
+    "19": [
+      "solution1_src_server_dnszonerecordmanager_views_shared_error"
+    ],
+    "20": [
+      "solution1_src_server_dnszonerecordmanager_views_shared_layout"
+    ],
+    "21": [
+      "solution1_src_server_dnszonerecordmanager_views_shared_validationscriptspartial"
+    ],
+    "22": [
+      "solution1_src_server_dnszonerecordmanager_views_viewstart"
+    ],
+    "23": [
+      "solution1_src_server_dnszonerecordmanager_wwwroot_js_site"
+    ]
+  },
+  "cohesion": {
+    "0": 0.0873015873015873,
+    "1": 0.08,
+    "2": 0.08695652173913043,
+    "3": 0.15584415584415584,
+    "4": 0.09523809523809523,
+    "5": 0.10526315789473684,
+    "6": 0.13333333333333333,
+    "7": 0.13333333333333333,
+    "8": 0.1619047619047619,
+    "9": 0.16666666666666666,
+    "10": 0.18181818181818182,
+    "11": 0.2222222222222222,
+    "12": 0.25,
+    "13": 0.6666666666666666,
+    "14": 1.0,
+    "15": 1.0,
+    "16": 1.0,
+    "17": 1.0,
+    "18": 1.0,
+    "19": 1.0,
+    "20": 1.0,
+    "21": 1.0,
+    "22": 1.0,
+    "23": 1.0
+  },
+  "gods": [
+    {
+      "id": "solution2_src_client_tsconfig_compileroptions",
+      "label": "compilerOptions",
+      "degree": 16
+    },
+    {
+      "id": "solution1_src_server_dnszonerecordmanager_tests_dnszonerecordmanager_tests",
+      "label": "DnsZoneRecordManager.Tests",
+      "degree": 12
+    },
+    {
+      "id": "solution2_src_server_dnszonerecordmanager_tests_dnszonerecordmanager_tests",
+      "label": "DnsZoneRecordManager.Tests",
+      "degree": 12
+    },
+    {
+      "id": "opencode_opencode_permission",
+      "label": "permission",
+      "degree": 8
+    },
+    {
+      "id": "solution2_src_server_dnszonerecordmanager_weatherforecast_dnszonerecordmanager_weatherforecast",
+      "label": "WeatherForecast",
+      "degree": 7
+    },
+    {
+      "id": "solution2_src_server_dnszonerecordmanager_dnszonerecordmanager",
+      "label": "DnsZoneRecordManager",
+      "degree": 6
+    },
+    {
+      "id": "solution1_src_server_dnszonerecordmanager_properties_launchsettings_profiles_http",
+      "label": "http",
+      "degree": 6
+    },
+    {
+      "id": "solution1_src_server_dnszonerecordmanager_properties_launchsettings_profiles_https",
+      "label": "https",
+      "degree": 6
+    },
+    {
+      "id": "solution2_src_server_dnszonerecordmanager_properties_launchsettings_profiles_http",
+      "label": "http",
+      "degree": 6
+    },
+    {
+      "id": "solution2_src_server_dnszonerecordmanager_properties_launchsettings_profiles_https",
+      "label": "https",
+      "degree": 6
+    }
+  ],
+  "surprises": [
+    {
+      "source": "DnsZoneRecordManager",
+      "target": "Microsoft.NET.Sdk.Web",
+      "source_files": [
+        "Solution2/src/server/DnsZoneRecordManager/DnsZoneRecordManager.csproj",
+        "Solution1/src/server/DnsZoneRecordManager/DnsZoneRecordManager.csproj"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "connects across different repos/directories; peripheral node `Microsoft.NET.Sdk.Web` unexpectedly reaches hub `DnsZoneRecordManager`"
+    },
+    {
+      "source": "DnsZoneRecordManager.Tests",
+      "target": "Microsoft.NET.Sdk",
+      "source_files": [
+        "Solution2/src/server/DnsZoneRecordManager.Tests/DnsZoneRecordManager.Tests.csproj",
+        "Solution1/src/server/DnsZoneRecordManager.Tests/DnsZoneRecordManager.Tests.csproj"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "connects across different repos/directories; peripheral node `Microsoft.NET.Sdk` unexpectedly reaches hub `DnsZoneRecordManager.Tests`"
+    },
+    {
+      "source": "ZoneInputValidator",
+      "target": "ZoneInput",
+      "source_files": [
+        "Solution2/src/server/DnsZoneRecordManager.Tests/UnitTest1.cs",
+        "Solution1/src/server/DnsZoneRecordManager.Tests/UnitTest1.cs"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "connects across different repos/directories"
+    },
+    {
+      "source": "DnsZoneRecordManager",
+      "target": "net10.0",
+      "source_files": [
+        "Solution2/src/server/DnsZoneRecordManager/DnsZoneRecordManager.csproj",
+        "Solution1/src/server/DnsZoneRecordManager/DnsZoneRecordManager.csproj"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "connects across different repos/directories"
+    },
+    {
+      "source": "DnsZoneRecordManager.Tests",
+      "target": "net10.0",
+      "source_files": [
+        "Solution2/src/server/DnsZoneRecordManager.Tests/DnsZoneRecordManager.Tests.csproj",
+        "Solution1/src/server/DnsZoneRecordManager/DnsZoneRecordManager.csproj"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "connects across different repos/directories"
+    }
+  ],
+  "questions": [
+    {
+      "type": "bridge_node",
+      "question": "Why does `mcp` connect `github` to `opencode.json`?",
+      "why": "High betweenness centrality (0.015) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `permission` connect `permission` to `opencode.json`?",
+      "why": "High betweenness centrality (0.014) - this node is a cross-community bridge."
+    },
+    {
+      "type": "isolated_nodes",
+      "question": "What connects `Microsoft.AspNetCore.OpenApi (10.0.11)`, `FluentValidation (12.1.1)`, `Bogus (35.6.5)` to the rest of the system?",
+      "why": "126 weakly-connected nodes found - possible documentation gaps or missing edges."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `DnsZoneRecordManager.Tests` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.0873015873015873 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `opencode.json` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.08 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `package.json` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.08695652173913043 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `WeatherForecast` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.09523809523809523 - nodes in this community are weakly interconnected."
+    }
+  ]
+}
