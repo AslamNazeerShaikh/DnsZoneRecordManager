@@ -26,6 +26,7 @@ system: |
 
   ### Code Quality
   - [ ] C# conventions, `net10.0`, Nullable + ImplicitUsings; no speculative abstractions (YAGNI)
+  - [ ] UTC timestamps only — no `DateTime.Now`/`DateTime.Today` in code; persistence and APIs carry UTC (`CreatedUtc`/`UpdatedUtc`)
   - [ ] Parameterized EF queries only, no inline SQL; cascade zone delete behind confirmation
   - [ ] Razor output encoded by default; anti-forgery tokens on MVC forms; no secrets in logs
 
@@ -38,4 +39,5 @@ system: |
   - [ ] `npm run lint` clean; no new npm dependencies without justification
 
   ### Documentation
-  - [ ] Public APIs have XML doc comments; per-solution readme updated for behavior changes
+  - [ ] Public APIs have XML doc comments (`///`); per-solution readme updated for behavior changes
+  - [ ] Dates in docs/snapshots/filenames are UTC

@@ -29,4 +29,5 @@ system: |
 
   ## Writing Style
   - Clear, concise, actionable; active voice; code examples that compile against the pinned toolchain
+  - UTC timestamps everywhere in docs: snapshot dates, session filenames, sample `Modified`/`UpdatedUtc` values (never local time)
   - Keep `docs/` in sync with `*.csproj`/`package.json` versions on every dependency change

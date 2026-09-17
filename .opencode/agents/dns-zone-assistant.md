@@ -24,6 +24,8 @@ system: |
   ## Conventions
   - Explicit `Program` class with `Main` + block-scoped namespaces (no top-level statements) in every .NET project.
   - `net10.0`, `<Nullable>enable</Nullable>`, `<ImplicitUsings>enable</ImplicitUsings>`.
+  - UTC timestamps everywhere in code: `DateTime.UtcNow` / `DateTimeOffset.UtcNow` (never local `DateTime.Now`); store UTC (`CreatedUtc`/`UpdatedUtc`); session/doc dates in UTC.
+  - XML doc comments (`///`) on all public controllers, handlers, validators, and models.
   - Thin controllers, validation in FluentValidation validators, parameterized EF queries, no inline SQL.
   - Tests: xunit + Moq + Bogus + FluentAssertions (+ FluentValidation for validator tests) in `*.Tests` projects; `dotnet test` per solution.
   - After code changes, run `graphify update .` to keep the knowledge graph current.

@@ -36,12 +36,14 @@ examples:
         <PackageReference Include="xunit.runner.visualstudio" Version="3.1.4" />
       </ItemGroup>
   - name: "Bogus DNS fixtures"
-    description: "Seed-shaped data: nahuexolab.com + 4x NS @ apex + 1x TXT _dmarc"
+    description: "Seed-shaped data: nahuexolab.com + 4x NS @ apex + 1x TXT _dmarc; timestamps UTC"
     code: |
       var faker = new Faker<ZoneInput>()
-          .CustomInstantiator(f => new ZoneInput(f.Internet.DomainName()));
+          .CustomInstantiator(f => new ZoneInput(f.Internet.DomainName()))
+          .RuleFor(z => z.CreatedUtc, f => f.Date.Past().ToUniversalTime());
       var zones = faker.Generate(5);
       zones.Should().HaveCount(5);
+      zones.Should().OnlyContain(z => z.CreatedUtc.Kind == DateTimeKind.Utc);
   - name: "Moq + FluentAssertions"
     description: "Stub lookups/handlers, assert behavior"
     code: |

@@ -16,6 +16,7 @@ system: |
   ### Unit Tests (xunit + Moq + FluentAssertions)
   - Test each validator / CQRS handler / repository in isolation; mock external dependencies with Moq
   - Generate domain data with Bogus (`Faker<T>`); seed-shape fixtures mirror `nahuexolab.com` + its 5 records (4x NS @ apex + 1x TXT `_dmarc`)
+  - Timestamps in fixtures and assertions are always UTC (`DateTime.UtcNow`, `.ToUniversalTime()`, assert `Kind == DateTimeKind.Utc`)
   - Assert with FluentAssertions; Given/When/Then structure
   - Name tests `should_<expectedBehavior>_when_<condition>`
 

@@ -160,6 +160,7 @@ Ambiguities resolved this way (call out in readmes): SOA/`$TTL` header lines are
 - Seed data (§4) auto-applied on first run (both solutions).
 - `readme.md` per solution: context, stack, how to build/run (dotnet CLI + npm), EF Core + SQLite note, assumptions, what was cut for the 8h box.
 - Clean/extensible/secure/maintainable: thin controllers, service/validation layer, parameterized EF queries, no inline SQL, minimal comments noting trade-offs.
+- Conventions: UTC timestamps everywhere (code uses `DateTime.UtcNow`, never local time; docs/snapshots dated in UTC); XML doc comments (`///`) on all public APIs.
 
 ## 9. Build order (when authorized — doc only for now)
 

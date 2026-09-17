@@ -1,7 +1,9 @@
 # Toolchain & Packages — DnsZoneRecordManager
 
-Snapshot date: 2026-09-17. Everything below is read from the repo/SDKs, not guessed.
+Snapshot date: 2026-09-17 (UTC). Everything below is read from the repo/SDKs, not guessed.
 Re-verify any time with the commands in §5.
+
+Project conventions: UTC timestamps everywhere (code: `DateTime.UtcNow`, never local time; docs/snapshots: UTC dates); XML doc comments (`///`) on all public controllers, handlers, validators, and models.
 
 ## 1. Toolchain (host)
 

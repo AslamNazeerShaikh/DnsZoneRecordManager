@@ -92,3 +92,25 @@ examples:
       const res = await fetch(`${process.env.API_URL}/api/zones?search=${q}`, { cache: "no-store" });
       if (!res.ok) throw new Error("Could not load zones.");
       const zones: ZoneDto[] = await res.json();
+  - name: "XML docs + UTC timestamps"
+    description: "Every public controller/DTO carries /// docs; timestamps are created and stored as UTC"
+    code: |
+      namespace DnsZoneRecordManager.Controllers
+      {
+          /// <summary>DNS zone lookup: list/search, create, rename, delete.</summary>
+          public class ZonesController : ControllerBase
+          {
+              /// <summary>Creates a zone; stamps <see cref="ZoneDto.CreatedUtc"/> with <c>DateTime.UtcNow</c>.</summary>
+              /// <response code="201">Zone created.</response>
+              /// <response code="400">Name failed validation (see body for per-field messages).</response>
+              [HttpPost]
+              [ProducesResponseType(typeof(ZoneDto), StatusCodes.Status201Created)]
+              [ProducesResponseType(StatusCodes.Status400BadRequest)]
+              public async Task<ActionResult<ZoneDto>> Create(
+                  [FromBody] CreateZone request, CancellationToken ct)
+              {
+                  var zone = await _sender.SendAsync(request with { CreatedUtc = DateTime.UtcNow }, ct);
+                  return CreatedAtAction(nameof(Get), new { id = zone.Id }, zone);
+              }
+          }
+      }
