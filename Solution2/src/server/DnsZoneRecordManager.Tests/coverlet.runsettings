@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Coverage gate settings (see Solution2 readme for the gate command).
+     Generated scaffolding (async state machines, lambdas) and the dotnet-ef
+     design-time factory (tooling-only) are excluded;
+     every hand-written line/branch/method must be covered (gate: 100/100/100). -->
+<RunSettings>
+  <DataCollectionRunSettings>
+    <DataCollectors>
+      <DataCollector friendlyName="XPlat code coverage">
+        <Configuration>
+          <Format>cobertura</Format>
+          <ExcludeByAttribute>CompilerGenerated,GeneratedCode</ExcludeByAttribute>
+          <ExcludeByFile>**/DesignTimeDbContextFactory.cs</ExcludeByFile>
+        </Configuration>
+      </DataCollector>
+    </DataCollectors>
+  </DataCollectionRunSettings>
+</RunSettings>
