@@ -89,4 +89,24 @@ describe("DashboardPage", () => {
     await Promise.resolve();
     expect(screen.queryByText("0 zones")).not.toBeInTheDocument();
   });
+
+  it("ignores late failures after unmount", async () => {
+    const rejecters: ((reason?: unknown) => void)[] = [];
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(
+        () =>
+          new Promise((_resolve, reject) => {
+            rejecters.push(reject as (reason?: unknown) => void);
+          }),
+      ),
+    );
+    const { unmount } = render(<DashboardPage />);
+    unmount();
+    for (const reject of rejecters) {
+      reject(new Error("Connection reset."));
+    }
+    await new Promise((resolve) => setTimeout(resolve, 0));
+    expect(screen.queryByText("0 zones")).not.toBeInTheDocument();
+  });
 });
